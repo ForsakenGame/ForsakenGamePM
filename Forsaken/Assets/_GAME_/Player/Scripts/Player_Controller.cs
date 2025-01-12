@@ -21,8 +21,12 @@ public class Player_Controller : MonoBehaviour
     private Vector2 _moveDir = Vector2.zero;
     private Directions _facingDirection = Directions.RIGHT;
 
-    private readonly int _animMoveRight = Animator.StringToHash("Anim_Player_Move_Right"); // Readonly to not edit later by accident
+    private readonly int _animMoveRight = Animator.StringToHash("Anim_Player_Walk_Right"); // Readonly to not edit later by accident
+    private readonly int _animMoveUp = Animator.StringToHash("Anim_Player_Walk_Up");
+    private readonly int _animMoveDown = Animator.StringToHash("Anim_Player_Walk_Down");
     private readonly int _animIdleRight = Animator.StringToHash("Anim_Player_Idle_Right");
+    private readonly int _animIdleUp = Animator.StringToHash("Anim_Player_Idle_Up");
+    private readonly int _animIdleDown = Animator.StringToHash("Anim_Player_Idle_Down");
     #endregion
 
     #region Tick
@@ -58,15 +62,14 @@ public class Player_Controller : MonoBehaviour
     {
         if (_moveDir.x != 0)
         {
-            if(_moveDir.x > 0) // Moving right
-            {
-                _facingDirection = Directions.RIGHT;
-            }
-            else if (_moveDir.x < 0) // Moving left
-            {
-                _facingDirection = Directions.LEFT;
-            }
+            _facingDirection = _moveDir.x > 0 ? Directions.RIGHT : Directions.LEFT;
         }
+        else if (_moveDir.y != 0)
+        {
+            _facingDirection = _moveDir.y > 0 ? Directions.UP :  Directions.DOWN;
+
+        }
+        Debug.Log(_facingDirection);
     }
     private void UpdateAnimation()
     {
@@ -81,11 +84,33 @@ public class Player_Controller : MonoBehaviour
 
         if (_moveDir.SqrMagnitude() > 0) // We're moving
         {
-            _animator.CrossFade(_animMoveRight, 0);
+            if(_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
+            {
+                _animator.CrossFade(_animMoveRight, 0);
+            }
+            else if (_facingDirection == Directions.UP)
+            {
+                _animator.CrossFade(_animMoveUp, 0);
+            }
+            else if (_facingDirection == Directions.DOWN)
+            {
+                _animator.CrossFade(_animMoveDown, 0);
+            }
         }
         else
         {
-            _animator.CrossFade(_animIdleRight, 0);
+            if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
+            {
+                _animator.CrossFade(_animIdleRight, 0);
+            }
+            else if (_facingDirection == Directions.UP)
+            {
+                _animator.CrossFade(_animIdleUp, 0);
+            }
+            else if (_facingDirection == Directions.DOWN)
+            {
+                _animator.CrossFade(_animIdleDown, 0);
+            }
         }
     }
     #endregion
