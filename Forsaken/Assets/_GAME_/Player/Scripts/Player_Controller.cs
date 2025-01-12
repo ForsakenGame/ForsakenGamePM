@@ -69,7 +69,7 @@ public class Player_Controller : MonoBehaviour
             _facingDirection = _moveDir.y > 0 ? Directions.UP :  Directions.DOWN;
 
         }
-        Debug.Log(_facingDirection);
+        // Debug.Log(_facingDirection);
     }
     private void UpdateAnimation()
     {
