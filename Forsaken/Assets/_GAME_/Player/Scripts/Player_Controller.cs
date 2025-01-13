@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     #region Enums
-    private enum Directions { UP, DOWN, LEFT, RIGHT }
+    private enum Directions { UP = 0, DOWN = 1, LEFT = 2, RIGHT = 3}
     #endregion
     #region Editor Data
     [Header("Movement Attributes")]
@@ -15,6 +16,11 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    #endregion
+
+    #region Animator Data
+    public bool isRightClickHeld = false;
+    public bool isLeftClickHeld = false;
     #endregion
 
     #region Internal Data
@@ -34,8 +40,11 @@ public class Player_Controller : MonoBehaviour
     {
         GatherInput();   
         CalculateFacingDirection();
-        UpdateAnimation();  
+        UpdateAnimation();
+        SetAnimatorDirectionParameters();
     }
+
+
     private void FixedUpdate()
     {
         MovementUpdate();
@@ -47,6 +56,9 @@ public class Player_Controller : MonoBehaviour
     {
         _moveDir.x = Input.GetAxisRaw("Horizontal");
         _moveDir.y = Input.GetAxisRaw("Vertical");
+
+        isLeftClickHeld = Input.GetMouseButton(0);
+        isRightClickHeld = Input.GetMouseButton(1);
     }
     #endregion
 
@@ -99,19 +111,26 @@ public class Player_Controller : MonoBehaviour
         }
         else
         {
-            if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
-            {
-                _animator.CrossFade(_animIdleRight, 0);
-            }
-            else if (_facingDirection == Directions.UP)
-            {
-                _animator.CrossFade(_animIdleUp, 0);
-            }
-            else if (_facingDirection == Directions.DOWN)
-            {
-                _animator.CrossFade(_animIdleDown, 0);
+            if (!isRightClickHeld) 
+            { 
+                if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
+                {
+                    _animator.CrossFade(_animIdleRight, 0);
+                }
+                else if (_facingDirection == Directions.UP)
+                {
+                    _animator.CrossFade(_animIdleUp, 0);
+                }
+                else if (_facingDirection == Directions.DOWN)
+                {
+                    _animator.CrossFade(_animIdleDown, 0);
+                }
             }
         }
+    }
+    private void SetAnimatorDirectionParameters()
+    {
+        _animator.SetInteger("FacingDirection", (int) _facingDirection);
     }
     #endregion
 }
