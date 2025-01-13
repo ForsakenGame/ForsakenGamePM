@@ -7,6 +7,7 @@ public class Player_AttackController : MonoBehaviour
 {
     #region Enums
     private enum Directions { UP, DOWN, LEFT, RIGHT }
+    private enum HeldItems { EMPTY = 0, SPEAR = 1, GUN = 2}
     #endregion
 
     #region Editor Data
@@ -18,6 +19,7 @@ public class Player_AttackController : MonoBehaviour
     #region Internal Data
     private Vector2 _moveDir = Vector2.zero;
     private Directions _facingDirection = Directions.RIGHT;
+    private HeldItems _heldItem = HeldItems.EMPTY;
 
     private readonly int _animStandingShootingRight = Animator.StringToHash("Anim_Player_StaticGun_Right");
     private readonly int _animStandingShootingUp = Animator.StringToHash("Anim_Player_StaticGun_Up");
@@ -38,6 +40,7 @@ public class Player_AttackController : MonoBehaviour
     {
         CalculateFacingDirection();
         GatherInput();
+        SaveLastUsedItem();
         UpdateAnimation();
     }
     #endregion
@@ -53,6 +56,20 @@ public class Player_AttackController : MonoBehaviour
 
         _animator.SetBool("isLeftClickHeld", isLeftClickHeld);
         _animator.SetBool("isRightClickHeld", isRightClickHeld);
+    }
+
+    private void SaveLastUsedItem()
+    {
+        if(isLeftClickHeld)
+        {
+            _heldItem = HeldItems.SPEAR;
+            _animator.SetInteger("HeldItem", (int)_heldItem);
+        }
+        if(isRightClickHeld)
+        {
+            _heldItem = HeldItems.GUN;
+            _animator.SetInteger("HeldItem", (int)_heldItem);
+        }
     }
     #endregion
 
