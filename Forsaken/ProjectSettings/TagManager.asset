@@ -44,6 +44,9 @@ TagManager:
   - name: SurGround
     uniqueID: 654079561
     locked: 0
+  - name: Water
+    uniqueID: 2633375465
+    locked: 0
   - name: Base
     uniqueID: 2859558295
     locked: 0
