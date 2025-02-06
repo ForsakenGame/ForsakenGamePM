@@ -38,7 +38,10 @@ public class Player_Controller : MonoBehaviour
     private readonly int _animWalkSpearUp = Animator.StringToHash("Anim_Player_WalkSpear_Up");
     private readonly int _animWalkSpearDown = Animator.StringToHash("Anim_Player_WalkSpear_Down");
 
-
+    // Reloading animation
+    private readonly int _animReloadRight = Animator.StringToHash("Anim_Player_Reload_Right");
+    private readonly int _animReloadUp = Animator.StringToHash("Anim_Player_Reload_Up");
+    private readonly int _animReloadDown = Animator.StringToHash("Anim_Player_Reload_Down");
     // Running animations
     private readonly int _animRunNormalRight = Animator.StringToHash("Anim_Player_RunNormal_Right");
     private readonly int _animRunNormalUp = Animator.StringToHash("Anim_Player_RunNormal_Up");
@@ -80,7 +83,7 @@ public class Player_Controller : MonoBehaviour
 
     #region Animator Data
     public bool isRightClickHeld = false;
-    public bool isLeftClickHeld = false;
+    public bool isLeftClicked = false;
     public bool isRunning = false; // Whether shift is pressed or not
     #endregion
     #region Tick
@@ -103,7 +106,7 @@ public class Player_Controller : MonoBehaviour
         _moveDir.x = Input.GetAxisRaw("Horizontal");
         _moveDir.y = Input.GetAxisRaw("Vertical");
 
-        isLeftClickHeld = Input.GetMouseButton(0);
+        isLeftClicked = Input.GetMouseButton(0);
         isRightClickHeld = Input.GetMouseButton(1);
 
         isRunning = Input.GetKey(KeyCode.LeftShift);
@@ -111,7 +114,7 @@ public class Player_Controller : MonoBehaviour
 
     private void SaveLastUsedItem()
     {
-        if (isLeftClickHeld)
+        if (isLeftClicked)
         {
             _heldItem = HeldItems.SPEAR;
             _animator.SetInteger("HeldItem", (int)_heldItem);
@@ -261,15 +264,6 @@ public class Player_Controller : MonoBehaviour
         }
         else if (_moveDir.SqrMagnitude() > 0 && isRunning && isRightClickHeld) // Shooting while running
         {
-            //float reloadTimer = 0.0f;
-            //while(reloadTimer % 60 < 5)
-            //{
-            //    reloadTimer += Time.deltaTime;
-               
-           //     Debug.Log("Reloading!!");
-            //    reloadTimer = 0.0f;
-                
-           // }
             if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
             {
                 _animator.CrossFade(_animRunningShootingRight, 0);
@@ -285,7 +279,7 @@ public class Player_Controller : MonoBehaviour
         }
         else // Idle and static attacks
         {
-            if(!isRightClickHeld && !isLeftClickHeld && _heldItem == HeldItems.EMPTY) // Normal IDLE
+            if(!isRightClickHeld && !isLeftClicked && _heldItem == HeldItems.EMPTY) // Normal IDLE
             {
                 if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
                 {
@@ -300,7 +294,7 @@ public class Player_Controller : MonoBehaviour
                     _animator.CrossFade(_animIdleDown, 0);
                 }
             }
-            else if (!isRightClickHeld && !isLeftClickHeld && _heldItem == HeldItems.GUN) // Holding Gun Idle 
+            else if (!isRightClickHeld && !isLeftClicked && _heldItem == HeldItems.GUN) // Holding Gun Idle 
             {
                 if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
                 {
@@ -315,7 +309,7 @@ public class Player_Controller : MonoBehaviour
                     _animator.CrossFade(_animIdleGunDown, 0);
                 }
             }
-            else if (!isRightClickHeld && !isLeftClickHeld && _heldItem == HeldItems.SPEAR) // Holding Spear Idle  
+            else if (!isRightClickHeld && !isLeftClicked && _heldItem == HeldItems.SPEAR) // Holding Spear Idle  
             {
                 if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
                 {
@@ -330,7 +324,7 @@ public class Player_Controller : MonoBehaviour
                     _animator.CrossFade(_animIdleSpearDown, 0);
                 }
             }
-            else if (isLeftClickHeld) // Static Spear attack
+            else if (isLeftClicked) // Static Spear attack
             {
                 if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
                 {
