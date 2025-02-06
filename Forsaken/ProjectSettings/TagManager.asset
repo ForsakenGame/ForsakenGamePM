@@ -50,9 +50,9 @@ TagManager:
   - name: Base
     uniqueID: 2859558295
     locked: 0
-  - name: Props
-    uniqueID: 2546128127
-    locked: 0
   - name: Character
     uniqueID: 897768025
+    locked: 0
+  - name: Props
+    uniqueID: 2546128127
     locked: 0
