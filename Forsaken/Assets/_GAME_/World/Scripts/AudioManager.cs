@@ -5,49 +5,66 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    private List<GameObject> _activeSounds;
+
+    private Dictionary<string, AudioSource> _activeSounds = new Dictionary<string, AudioSource>();
 
     private void Awake()
     {
-        if(!instance)
-        {
+        if (instance == null)
             instance = this;
-            DontDestroyOnLoad(gameObject);
-            _activeSounds = new List<GameObject>();
-        }
         else
-        {
             Destroy(gameObject);
+    }
+
+    public void PlayAudio(AudioClip clip, string key, float volume, bool loop)
+    {
+        if (_activeSounds.ContainsKey(key)) // Prevent stacking
+        {
+            return;
+        }
+
+        GameObject audioObject = new GameObject("Audio_" + key);
+        audioObject.transform.SetParent(transform); // Keep hierarchy clean
+
+        AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.volume = volume;
+        audioSource.loop = loop;
+        audioSource.Play();
+
+        _activeSounds[key] = audioSource;
+
+        if (!loop)
+        {
+            StartCoroutine(CheckAudio(key, audioSource));
         }
     }
 
-    public AudioSource PlayAudio(AudioClip clip, string objectName, float volume, bool isLoop)
+    public void StopAudio(string key)
     {
-        GameObject audioObject = new GameObject(objectName);
-        AudioSource audioSourceComponent = audioObject.AddComponent<AudioSource>();
-        audioSourceComponent.clip = clip;
-        audioSourceComponent.volume = volume;
-        audioSourceComponent.loop = isLoop;
-
-        audioSourceComponent.Play();
-
-        if (!isLoop)
+        if (_activeSounds.ContainsKey(key))
         {
-            _activeSounds.Add(audioObject);
-            StartCoroutine(CheckAudio(audioSourceComponent));
+            AudioSource source = _activeSounds[key];
+            source.Stop();
+            Destroy(source.gameObject); // Destroy the GameObject properly
+            _activeSounds.Remove(key);
         }
-
-        return audioSourceComponent;
     }
 
-
-    IEnumerator CheckAudio(AudioSource audioSource)
+    public bool IsPlaying(string key)
     {
-        while (audioSource.isPlaying)
+        return _activeSounds.ContainsKey(key) && _activeSounds[key].isPlaying;
+    }
+
+    private IEnumerator CheckAudio(string key, AudioSource audioSource)
+    {
+        yield return new WaitUntil(() => !audioSource.isPlaying);
+
+        if (_activeSounds.ContainsKey(key))
         {
-            yield return null;
+            _activeSounds.Remove(key);
         }
-        _activeSounds.Remove(audioSource.gameObject);
+
         Destroy(audioSource.gameObject);
     }
 }

@@ -12,10 +12,9 @@ public class Player_AudioController : MonoBehaviour
     public AudioClip footstep5;
     public AudioClip machinegun;
 
-    private bool _isRightButtonHeld;
-    private AudioSource _shootingAudioSource;
     private List<AudioClip> _footsteps;
     private Animator _animator;
+    private string _shootingAudioKey = "machinegun"; // Unique key to track sound
 
     private readonly List<string> shootingAnimations = new List<string>
     {
@@ -38,13 +37,6 @@ public class Player_AudioController : MonoBehaviour
             footstep5
         };
 
-        // AudioSource for shooting
-        _shootingAudioSource = gameObject.AddComponent<AudioSource>();
-        _shootingAudioSource.clip = machinegun;
-        _shootingAudioSource.loop = true; // Make it loop
-        _shootingAudioSource.playOnAwake = false;
-        _shootingAudioSource.volume = 0.1f;
-
         _animator = GetComponent<Animator>();
     }
 
@@ -55,14 +47,13 @@ public class Player_AudioController : MonoBehaviour
 
     private void GatherInput()
     {
-        // Avoids shooting sound playing when right clicking on incorrect animation 
-        bool isShooting = Input.GetMouseButton(1) && IsShootingAnimationPlaying(); 
+        bool isShooting = Input.GetMouseButton(1) && IsShootingAnimationPlaying();
 
         if (isShooting)
         {
             PlayShootingSound();
         }
-        else 
+        else
         {
             StopShootingSound();
         }
@@ -80,34 +71,38 @@ public class Player_AudioController : MonoBehaviour
 
     public void PlayShootingSound()
     {
-        if (!_shootingAudioSource.isPlaying) // Avoid audio stacking
+        if (!AudioManager.instance.IsPlaying(_shootingAudioKey)) // Prevent stacking
         {
-            _shootingAudioSource.Play();
+            AudioManager.instance.PlayAudio(machinegun, _shootingAudioKey, 0.1f, true); // Set to loop
+            Debug.Log("Started shooting sound");
         }
     }
 
     public void StopShootingSound()
     {
-        if (_shootingAudioSource.isPlaying)
+        if (AudioManager.instance.IsPlaying(_shootingAudioKey)) // Stop if playing
         {
-            _shootingAudioSource.Stop();
+            AudioManager.instance.StopAudio(_shootingAudioKey);
+            Debug.Log("Stopped shooting sound");
         }
     }
 
     private bool IsShootingAnimationPlaying()
     {
+        if (_animator == null) return false;
+
         AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
 
         foreach (string animationName in shootingAnimations)
         {
             if (stateInfo.IsName(animationName))
             {
-                // Debug.Log("shooting animation is playing");
-                // Debug.Log(stateInfo.GetHashCode());
+                Debug.Log("Shooting animation is playing");
                 return true;
             }
         }
-        // Debug.Log("quack, quack");
+
+        Debug.Log("quack, quack"); // Debugging, remove later
         return false;
     }
 }
