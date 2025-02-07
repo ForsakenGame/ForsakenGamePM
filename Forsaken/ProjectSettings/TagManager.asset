@@ -47,6 +47,9 @@ TagManager:
   - name: Base
     uniqueID: 2859558295
     locked: 0
+  - name: Walls
+    uniqueID: 3177440575
+    locked: 0
   - name: Details
     uniqueID: 4274429223
     locked: 0
