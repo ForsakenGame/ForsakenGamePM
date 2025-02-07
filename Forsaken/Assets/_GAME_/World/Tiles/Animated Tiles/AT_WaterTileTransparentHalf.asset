@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: AT_WaterTileTransparentHalf
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_AnimatedSprites:
+  - {fileID: 668816241, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 540084301, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -658220318, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 47454458, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 1944020386, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 1767809522, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -1231615136, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 1904950945, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 268306292, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -919767241, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 765729002, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 65799659, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 1138649565, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -1442513049, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -1177483650, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 880295436, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  m_MinSpeed: 12
+  m_MaxSpeed: 12
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0

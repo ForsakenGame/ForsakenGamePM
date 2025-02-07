@@ -44,11 +44,17 @@ TagManager:
   - name: SurGround
     uniqueID: 654079561
     locked: 0
+  - name: Base
+    uniqueID: 2859558295
+    locked: 0
+  - name: Details
+    uniqueID: 4274429223
+    locked: 0
   - name: Water
     uniqueID: 2633375465
     locked: 0
-  - name: Base
-    uniqueID: 2859558295
+  - name: Bridges
+    uniqueID: 24196309
     locked: 0
   - name: Character
     uniqueID: 897768025
