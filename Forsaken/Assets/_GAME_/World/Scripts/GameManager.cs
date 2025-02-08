@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public AudioClip lobbyMusic;
     public AudioClip level1Music;
 
+    private string currentSceneName;
     [SerializeField] GameObject pauseMenu;
     void Awake()
     {
@@ -32,34 +33,37 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
+        currentSceneName = SceneManager.GetActiveScene().name;
+        AudioManager.instance.StopAudio(currentSceneName + "Music");
         SceneManager.LoadScene(sceneName);
     }
 
     // This function is called every time a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Debug.Log("Scene loaded: " + scene.name);
+         Debug.Log("Scene loaded: " + scene.name);
 
         // Scene checking to play the appropiate music
         if (scene.name == "Level_1")
         {
             if (AudioManager.instance != null && level1Music != null)
             {
-                AudioManager.instance.PlayAudio(level1Music, "Level1Music", 0.01f, true);
+                Debug.Log("Play this");
+                AudioManager.instance.PlayAudio(level1Music, "Level_1Music", 0.01f, true);
             }
         }
         else if (scene.name == "Main_Menu")
         {
             if (AudioManager.instance != null && mainMenuMusic != null)
             {
-                AudioManager.instance.PlayAudio(mainMenuMusic, "mainMenuMusic", 0.1f, true);
+                AudioManager.instance.PlayAudio(mainMenuMusic, "Main_MenuMusic", 0.1f, true);
             }
         }
         else if(scene.name == "Lobby")
         {
             if (AudioManager.instance != null && lobbyMusic != null)
             {
-                AudioManager.instance.PlayAudio(lobbyMusic, "lobbymusic", 0.1f, true);
+                AudioManager.instance.PlayAudio(lobbyMusic, "LobbyMusic", 0.1f, true);
             }
         }
     }
@@ -84,6 +88,8 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenuScene()
     {
+        currentSceneName = SceneManager.GetActiveScene().name;
+        AudioManager.instance.StopAudio(currentSceneName + "Music");
         SceneManager.LoadScene("Main_Menu");
         Time.timeScale = 1;
     }
