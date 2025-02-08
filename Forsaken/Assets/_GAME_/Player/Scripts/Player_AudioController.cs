@@ -12,6 +12,7 @@ public class Player_AudioController : MonoBehaviour
     public AudioClip footstep5;
     public AudioClip machinegun;
     public AudioClip machinegunEnd;
+    public AudioClip spearSlash;
 
     private List<AudioClip> _footsteps;
     private Animator _animator;
@@ -106,5 +107,11 @@ public class Player_AudioController : MonoBehaviour
 
         // Debug.Log("quack, quack"); // Debugging, remove later
         return false;
+    }
+
+    public void PlaySpearSlash()
+    {
+        AudioManager.instance.enabled = true;
+        AudioManager.instance.PlayAudio(spearSlash, "spearSlash", 1f, false);
     }
 }
