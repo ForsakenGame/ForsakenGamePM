@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
                 AudioManager.instance.PlayAudio(level1Music, "Level1Music", 0.01f, true);
             }
         }
-        else if (scene.name == "Main Menu")
+        else if (scene.name == "Main_Menu")
         {
             if (AudioManager.instance != null && mainMenuMusic != null)
             {
@@ -62,4 +62,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Level_1");
+        Time.timeScale = 1;
+    }
+
+    public void GoToMainMenuScene()
+    {
+        SceneManager.LoadScene("Main_Menu");
+        Time.timeScale = 1;
+    }
 }

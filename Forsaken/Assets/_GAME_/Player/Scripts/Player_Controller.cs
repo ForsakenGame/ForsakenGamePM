@@ -18,13 +18,14 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    [SerializeField] GameObject deathScreenCanvas;
     #endregion
 
     #region Internal Data
     private Vector2 _moveDir = Vector2.zero;
     private Directions _facingDirection = Directions.RIGHT;
     private HeldItems _heldItem = HeldItems.EMPTY;
-    private bool isDead = false;
+    private bool _isDead = false;
 
     // Walking animations
     private readonly int _animMoveRight = Animator.StringToHash("Anim_Player_Walk_Right"); // Readonly to not edit later by accident
@@ -180,7 +181,7 @@ public class Player_Controller : MonoBehaviour
             _spriteRenderer.flipX = false;
         }
 
-        if (_moveDir.SqrMagnitude() > 0 && !isRunning && !isDead) // We're walking
+        if (_moveDir.SqrMagnitude() > 0 && !isRunning && !_isDead) // We're walking
         {
             if(_heldItem == HeldItems.EMPTY) // Walking Normal
             {
@@ -228,7 +229,7 @@ public class Player_Controller : MonoBehaviour
                 }
             }
         }
-        else if (_moveDir.SqrMagnitude() > 0 && isRunning && !isRightClickHeld && !isDead) // Running 
+        else if (_moveDir.SqrMagnitude() > 0 && isRunning && !isRightClickHeld && !_isDead) // Running 
         {
             if(_heldItem == HeldItems.EMPTY) // Running normal
             {
@@ -276,7 +277,7 @@ public class Player_Controller : MonoBehaviour
                 }
             }
         }
-        else if (_moveDir.SqrMagnitude() > 0 && isRunning && isRightClickHeld && !isDead) // Shooting while running
+        else if (_moveDir.SqrMagnitude() > 0 && isRunning && isRightClickHeld && !_isDead) // Shooting while running
         {
             if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
             {
@@ -291,7 +292,7 @@ public class Player_Controller : MonoBehaviour
                 _animator.CrossFade(_animRunningShootingDown, 0);
             }
         }
-        else if(!isDead)// Idle and static attacks
+        else if(!_isDead)// Idle and static attacks
         {
             if(!isRightClickHeld && !isLeftClicked && _heldItem == HeldItems.EMPTY) // Normal IDLE
             {
@@ -373,7 +374,7 @@ public class Player_Controller : MonoBehaviour
 
     public void Die()
     {
-        isDead = true;
+        _isDead = true;
         if (_facingDirection == Directions.LEFT)
         {
             _spriteRenderer.flipX = true;
@@ -431,7 +432,14 @@ public class Player_Controller : MonoBehaviour
             }
         }
         // Show death screen and pause game
-
+        // Checks if current playing animation has ended
+        
     }
     #endregion
+
+    public void ShowDeathMenu()
+    {
+        GameManager.instance.PauseGame();
+        deathScreenCanvas.SetActive(true);
+    }
 }
