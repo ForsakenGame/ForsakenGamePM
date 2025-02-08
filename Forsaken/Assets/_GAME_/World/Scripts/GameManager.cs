@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         {
             if (AudioManager.instance != null && mainMenuMusic != null)
             {
-                AudioManager.instance.PlayAudio(lobbyMusic, "mainMenuMusic", 0.1f, true);
+                AudioManager.instance.PlayAudio(lobbyMusic, "lobbymusic", 0.1f, true);
             }
         }
     }
