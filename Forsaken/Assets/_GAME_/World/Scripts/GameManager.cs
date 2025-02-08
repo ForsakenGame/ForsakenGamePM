@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public AudioClip mainMenuMusic;
+    public AudioClip lobbyMusic;
     public AudioClip level1Music;
     void Awake()
     {
@@ -42,14 +43,21 @@ public class GameManager : MonoBehaviour
         {
             if (AudioManager.instance != null && level1Music != null)
             {
-                AudioManager.instance.PlayAudio(level1Music, "Level1Music", 1f, true);
+                AudioManager.instance.PlayAudio(level1Music, "Level1Music", 0.01f, true);
             }
         }
         else if (scene.name == "Main Menu")
         {
             if (AudioManager.instance != null && mainMenuMusic != null)
             {
-                AudioManager.instance.PlayAudio(mainMenuMusic, "mainMenuMusic", 1f, true);
+                AudioManager.instance.PlayAudio(mainMenuMusic, "mainMenuMusic", 0.1f, true);
+            }
+        }
+        else if(scene.name == "Lobby")
+        {
+            if (AudioManager.instance != null && mainMenuMusic != null)
+            {
+                AudioManager.instance.PlayAudio(lobbyMusic, "mainMenuMusic", 0.1f, true);
             }
         }
     }
