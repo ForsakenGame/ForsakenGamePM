@@ -6,32 +6,50 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public AudioClip mainMenuMusic;
     public AudioClip level1Music;
     void Awake()
     {
-        // Si la instancia es null
         if (!instance)
         {
-            instance = this; // asignamos la clase GameManager (en la que estamos)
-            DontDestroyOnLoad(gameObject); // gameObject es la escena actual
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        // Si ya hay una instancia de GameManager
         else
         {
-            // Destruimos la escena
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDestroy()
+    {
+        // Avoids memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void Start()
+    public void ChangeScene(string sceneName)
     {
-        if(SceneManager.GetActiveScene().name == "Level_1")
+        SceneManager.LoadScene(sceneName);
+    }
+
+    // This function is called every time a new scene is loaded
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Debug.Log("Scene loaded: " + scene.name);
+
+        // Scene checking to play the appropiate music
+        if (scene.name == "Level_1")
         {
-            Debug.Log(SceneManager.GetActiveScene().name);
-            if (level1Music != null && AudioManager.instance != null)
+            if (AudioManager.instance != null && level1Music != null)
             {
-                Debug.Log("Playing music");
                 AudioManager.instance.PlayAudio(level1Music, "Level1Music", 1f, true);
+            }
+        }
+        else if (scene.name == "Main Menu")
+        {
+            if (AudioManager.instance != null && mainMenuMusic != null)
+            {
+                AudioManager.instance.PlayAudio(mainMenuMusic, "mainMenuMusic", 1f, true);
             }
         }
     }
