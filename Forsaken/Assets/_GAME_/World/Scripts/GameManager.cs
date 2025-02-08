@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
         else if(scene.name == "Lobby")
         {
-            if (AudioManager.instance != null && mainMenuMusic != null)
+            if (AudioManager.instance != null && lobbyMusic != null)
             {
                 AudioManager.instance.PlayAudio(lobbyMusic, "lobbymusic", 0.1f, true);
             }
