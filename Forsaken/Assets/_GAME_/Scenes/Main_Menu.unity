@@ -713,7 +713,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level_1
+          m_StringArgument: Lobby
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &373750747
@@ -1613,6 +1613,7 @@ MonoBehaviour:
   mainMenuMusic: {fileID: 8300000, guid: 395fe6ad1aac0414f9b79605edef8924, type: 3}
   lobbyMusic: {fileID: 0}
   level1Music: {fileID: 8300000, guid: 59890b4ce115a0e4ea00c952a9e387ec, type: 3}
+  pauseMenu: {fileID: 0}
 --- !u!4 &1481474445
 Transform:
   m_ObjectHideFlags: 0
