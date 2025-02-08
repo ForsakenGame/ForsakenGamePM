@@ -24,6 +24,7 @@ public class Player_Controller : MonoBehaviour
     private Vector2 _moveDir = Vector2.zero;
     private Directions _facingDirection = Directions.RIGHT;
     private HeldItems _heldItem = HeldItems.EMPTY;
+    private bool isDead = false;
 
     // Walking animations
     private readonly int _animMoveRight = Animator.StringToHash("Anim_Player_Walk_Right"); // Readonly to not edit later by accident
@@ -79,6 +80,19 @@ public class Player_Controller : MonoBehaviour
     private readonly int _animRunningShootingRight = Animator.StringToHash("Anim_Player_RunningGun_Right");
     private readonly int _animRunningShootingUp = Animator.StringToHash("Anim_Player_RunningGun_Up");
     private readonly int _animRunningShootingDown = Animator.StringToHash("Anim_Player_RunningGun_Down");
+
+    // Dying animations 
+    private readonly int _animDeathGunRight = Animator.StringToHash("Anim_Player_DeathGun_Right");
+    private readonly int _animDeathGunUp = Animator.StringToHash("Anim_Player_DeathGun_Up");
+    private readonly int _animDeathGunDown = Animator.StringToHash("Anim_Player_DeathGun_Down");
+
+    private readonly int _animDeathSpearRight = Animator.StringToHash("Anim_Player_DeathSpear_Right");
+    private readonly int _animDeathSpearUp = Animator.StringToHash("Anim_Player_DeathSpear_Up");
+    private readonly int _animDeathSpearDown = Animator.StringToHash("Anim_Player_DeathSpear_Down");
+
+    private readonly int _animDeathNormalRight = Animator.StringToHash("Anim_Player_DeathNormal_Right");
+    private readonly int _animDeathNormalUp = Animator.StringToHash("Anim_Player_DeathNormal_Up");
+    private readonly int _animDeathNormalDown = Animator.StringToHash("Anim_Player_DeathNormal_Down");
     #endregion
 
     #region Animator Data
@@ -166,7 +180,7 @@ public class Player_Controller : MonoBehaviour
             _spriteRenderer.flipX = false;
         }
 
-        if (_moveDir.SqrMagnitude() > 0 && !isRunning) // We're walking
+        if (_moveDir.SqrMagnitude() > 0 && !isRunning && !isDead) // We're walking
         {
             if(_heldItem == HeldItems.EMPTY) // Walking Normal
             {
@@ -214,7 +228,7 @@ public class Player_Controller : MonoBehaviour
                 }
             }
         }
-        else if (_moveDir.SqrMagnitude() > 0 && isRunning && !isRightClickHeld) // Running 
+        else if (_moveDir.SqrMagnitude() > 0 && isRunning && !isRightClickHeld && !isDead) // Running 
         {
             if(_heldItem == HeldItems.EMPTY) // Running normal
             {
@@ -262,7 +276,7 @@ public class Player_Controller : MonoBehaviour
                 }
             }
         }
-        else if (_moveDir.SqrMagnitude() > 0 && isRunning && isRightClickHeld) // Shooting while running
+        else if (_moveDir.SqrMagnitude() > 0 && isRunning && isRightClickHeld && !isDead) // Shooting while running
         {
             if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
             {
@@ -277,7 +291,7 @@ public class Player_Controller : MonoBehaviour
                 _animator.CrossFade(_animRunningShootingDown, 0);
             }
         }
-        else // Idle and static attacks
+        else if(!isDead)// Idle and static attacks
         {
             if(!isRightClickHeld && !isLeftClicked && _heldItem == HeldItems.EMPTY) // Normal IDLE
             {
@@ -357,5 +371,67 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    public void Die()
+    {
+        isDead = true;
+        if (_facingDirection == Directions.LEFT)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else if (_facingDirection == Directions.RIGHT)
+        {
+            _spriteRenderer.flipX = false;
+        }
+
+        // Play death animation depending on held item and facing direction
+        if (_heldItem == HeldItems.EMPTY)
+        {
+            if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
+            {
+                Debug.Log("Dead");
+                _animator.CrossFade(_animDeathNormalRight, 0);
+            }
+            else if (_facingDirection == Directions.UP)
+            {
+                _animator.CrossFade(_animDeathNormalUp, 0);
+            }
+            else if (_facingDirection == Directions.DOWN)
+            {
+                _animator.CrossFade(_animDeathNormalDown, 0);
+            }
+        }
+        else if (_heldItem == HeldItems.SPEAR)
+        {
+            if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
+            {
+                _animator.CrossFade(_animDeathSpearRight, 0);
+            }
+            else if (_facingDirection == Directions.UP)
+            {
+                _animator.CrossFade(_animDeathSpearUp, 0);
+            }
+            else if (_facingDirection == Directions.DOWN)
+            {
+                _animator.CrossFade(_animDeathSpearDown, 0);
+            }
+        }
+        else if (_heldItem == HeldItems.GUN)
+        {
+            if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
+            {
+                _animator.CrossFade(_animDeathGunRight, 0);
+            }
+            else if (_facingDirection == Directions.UP)
+            {
+                _animator.CrossFade(_animDeathGunUp, 0);
+            }
+            else if (_facingDirection == Directions.DOWN)
+            {
+                _animator.CrossFade(_animDeathGunDown, 0);
+            }
+        }
+        // Show death screen and pause game
+
+    }
     #endregion
 }
