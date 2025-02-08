@@ -66,15 +66,15 @@ public class Player_AudioController : MonoBehaviour
         AudioClip footstep = _footsteps[i];
 
         AudioManager.instance.enabled = true;
-        AudioManager.instance.PlayAudio(footstep, "footstep" + i, 0.1f, false);
+        AudioManager.instance.PlayAudio(footstep, "footstep" + i, 1f, false);
     }
 
     public void PlayShootingSound()
     {
         if (!AudioManager.instance.IsPlaying(_shootingAudioKey)) // Prevent stacking
         {
-            AudioManager.instance.PlayAudio(machinegun, _shootingAudioKey, 0.1f, true); // Set to loop
-            Debug.Log("Started shooting sound");
+            AudioManager.instance.PlayAudio(machinegun, _shootingAudioKey, 1f, true); // Set to loop
+            // Debug.Log("Started shooting sound");
         }
     }
 
@@ -83,7 +83,7 @@ public class Player_AudioController : MonoBehaviour
         if (AudioManager.instance.IsPlaying(_shootingAudioKey)) // Stop if playing
         {
             AudioManager.instance.StopAudio(_shootingAudioKey);
-            Debug.Log("Stopped shooting sound");
+            // Debug.Log("Stopped shooting sound");
         }
     }
 
@@ -97,12 +97,12 @@ public class Player_AudioController : MonoBehaviour
         {
             if (stateInfo.IsName(animationName))
             {
-                Debug.Log("Shooting animation is playing");
+                // Debug.Log("Shooting animation is playing");
                 return true;
             }
         }
 
-        Debug.Log("quack, quack"); // Debugging, remove later
+        // Debug.Log("quack, quack"); // Debugging, remove later
         return false;
     }
 }
