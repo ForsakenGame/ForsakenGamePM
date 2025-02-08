@@ -108,6 +108,11 @@ public class Player_Controller : MonoBehaviour
         CalculateFacingDirection();
         UpdateAnimation();
         SaveLastUsedItem();
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.instance.PauseGame();
+        }
     }
     private void FixedUpdate()
     {

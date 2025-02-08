@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public AudioClip mainMenuMusic;
     public AudioClip lobbyMusic;
     public AudioClip level1Music;
+
+    [SerializeField] GameObject pauseMenu;
     void Awake()
     {
         if (!instance)
@@ -65,11 +67,13 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        pauseMenu.SetActive(false);
     }
 
     public void RestartGame()
