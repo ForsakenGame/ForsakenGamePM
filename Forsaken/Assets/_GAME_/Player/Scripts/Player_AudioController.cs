@@ -11,6 +11,7 @@ public class Player_AudioController : MonoBehaviour
     public AudioClip footstep4;
     public AudioClip footstep5;
     public AudioClip machinegun;
+    public AudioClip machinegunEnd;
 
     private List<AudioClip> _footsteps;
     private Animator _animator;
@@ -83,6 +84,7 @@ public class Player_AudioController : MonoBehaviour
         if (AudioManager.instance.IsPlaying(_shootingAudioKey)) // Stop if playing
         {
             AudioManager.instance.StopAudio(_shootingAudioKey);
+            AudioManager.instance.PlayAudio(machinegunEnd, "machinegunEnd", 1f, false);
             // Debug.Log("Stopped shooting sound");
         }
     }
