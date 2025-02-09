@@ -2,30 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiSpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    [SerializeField] GameObject enemyPrefab;
-    [SerializeField] Transform player;
-    [SerializeField] float spawnRadius = 10f;
-    [SerializeField] int maxEnemies = 6;
+    [SerializeField] GameObject enemyPrefab;   
+    [SerializeField] Transform player;          
+    [SerializeField] float spawnRadius = 10f;   
+    [SerializeField] int maxEnemies;       
 
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<GameObject> enemies = new List<GameObject>(); 
 
     void Start()
     {
-        GenerateEnemies();
+        GenerateEnemies();  
     }
 
     void GenerateEnemies()
     {
-        int enemyCount = Mathf.Min(maxEnemies, enemies.Count);
-
-        for (int i = enemyCount; i < maxEnemies; i++)
+        for (int i = enemies.Count; i < maxEnemies; i++)
         {
-            Vector3 randomPosition = new Vector3(Random.Range(-spawnRadius, spawnRadius),
-                                                  Random.Range(-spawnRadius, spawnRadius),
-                                                  0f);
+            Vector3 randomPosition = GetRandomPositionInRadius();
 
             GameObject newEnemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
 
@@ -33,10 +29,22 @@ public class EnemiSpawner : MonoBehaviour
             if (enemyController != null)
             {
                 enemyController.SetPlayer(player);
+
+                enemyController.SetGuardPoint(randomPosition); 
             }
 
             enemies.Add(newEnemy);
         }
     }
 
+    Vector3 GetRandomPositionInRadius()
+    {
+        float randomX = Random.Range(-spawnRadius, spawnRadius);
+        float randomZ = Random.Range(-spawnRadius, spawnRadius);
+
+        return new Vector3(randomX, 0f, randomZ); 
+    }
 }
+
+
+

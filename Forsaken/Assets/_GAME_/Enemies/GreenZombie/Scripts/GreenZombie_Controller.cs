@@ -5,11 +5,6 @@ using UnityEngine;
 [SelectionBase]
 public class GreenZombie_Controller : MonoBehaviour
 {
-
-    #region Enums
-    private enum Directions { UP, DOWN, LEFT, RIGHT }
-    #endregion
-
     #region Editor Data
     [Header("Movement Attributes")]
     [SerializeField] float _moveSpeed = 50f;
@@ -20,13 +15,15 @@ public class GreenZombie_Controller : MonoBehaviour
     [SerializeField] SpriteRenderer _spriteRenderer;
 
     [Header("Player Reference")]
-    [SerializeField] Transform _player; // Referencia al jugador
+    [SerializeField] Transform _player;
     #endregion
 
     #region Internal Data
     private Vector2 _moveDir = Vector2.zero;
-    private Directions _facingDirection = Directions.RIGHT;
+    private Directions _facingDirection = Directions.DOWN;
+    private Vector3 _guardPoint;  
 
+    // Hashes de animaciones
     private readonly int _animMoveRight = Animator.StringToHash("Anim_Run_Right");
     private readonly int _animMoveLeft = Animator.StringToHash("Anim_Run_Left");
     private readonly int _animMoveUp = Animator.StringToHash("Anim_Run_Back");
@@ -38,15 +35,11 @@ public class GreenZombie_Controller : MonoBehaviour
     #endregion
 
     #region Tick
-
     void Update()
     {
         if (_player != null)
         {
-
             CalculateMoveDirection();
-
-
             UpdateAnimation();
         }
     }
@@ -55,7 +48,6 @@ public class GreenZombie_Controller : MonoBehaviour
     {
         if (_player != null)
         {
-
             MovementUpdate();
         }
     }
@@ -64,16 +56,12 @@ public class GreenZombie_Controller : MonoBehaviour
     #region Movement Logic
     private void CalculateMoveDirection()
     {
-
         Vector2 directionToPlayer = (_player.position - transform.position).normalized;
-
-
         _moveDir = directionToPlayer;
     }
 
     private void MovementUpdate()
     {
-
         _rb.velocity = _moveDir * _moveSpeed * Time.fixedDeltaTime;
     }
     #endregion
@@ -81,19 +69,19 @@ public class GreenZombie_Controller : MonoBehaviour
     #region Animation Logic
     private void UpdateAnimation()
     {
-
         Vector2 directionToPlayer = (_player.position - transform.position).normalized;
-
 
         if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.y))
         {
             if (directionToPlayer.x > 0)
             {
                 _facingDirection = Directions.RIGHT;
+                _animator.CrossFade(_animMoveRight, 0);
             }
             else if (directionToPlayer.x < 0)
             {
                 _facingDirection = Directions.LEFT;
+                _animator.CrossFade(_animMoveLeft, 0);
             }
         }
         else
@@ -101,69 +89,55 @@ public class GreenZombie_Controller : MonoBehaviour
             if (directionToPlayer.y > 0)
             {
                 _facingDirection = Directions.UP;
+                _animator.CrossFade(_animMoveUp, 0);
             }
             else if (directionToPlayer.y < 0)
             {
                 _facingDirection = Directions.DOWN;
-            }
-        }
-
-
-        if (_facingDirection == Directions.LEFT)
-        {
-            _spriteRenderer.flipX = true;
-        }
-        else if (_facingDirection == Directions.RIGHT)
-        {
-            _spriteRenderer.flipX = false;
-        }
-
-
-        if (_moveDir.sqrMagnitude > 0)
-        {
-            if (_facingDirection == Directions.RIGHT)
-            {
-                _animator.CrossFade(_animMoveRight, 0);
-            }
-            else if (_facingDirection == Directions.LEFT)
-            {
-                _animator.CrossFade(_animMoveLeft, 0);
-            }
-            else if (_facingDirection == Directions.UP)
-            {
-                _animator.CrossFade(_animMoveUp, 0);
-            }
-            else if (_facingDirection == Directions.DOWN)
-            {
                 _animator.CrossFade(_animMoveDown, 0);
             }
         }
-        else
-        {
 
+        if (_moveDir.sqrMagnitude == 0)
+        {
             if (_facingDirection == Directions.UP)
-            {
                 _animator.CrossFade(_animIdleBack, 0);
-            }
             else if (_facingDirection == Directions.DOWN)
-            {
                 _animator.CrossFade(_animIdleFront, 0);
-            }
             else if (_facingDirection == Directions.LEFT)
-            {
                 _animator.CrossFade(_animIdleLeft, 0);
-            }
             else if (_facingDirection == Directions.RIGHT)
-            {
                 _animator.CrossFade(_animIdleRight, 0);
-            }
         }
     }
     #endregion
+
+    public void SetGuardPoint(Vector3 point)
+    {
+        _guardPoint = point;
+    }
+
+    public Vector3 GetGuardPoint()
+    {
+        return _guardPoint;
+    }
 
     public void SetPlayer(Transform player)
     {
         _player = player;
     }
+
+    public void SetFacingDirection(Directions direction)
+    {
+        _facingDirection = direction;
+    }
+
+    #region Enums
+    public enum Directions { UP, DOWN, LEFT, RIGHT }
+    #endregion
 }
+
+
+
+
 
