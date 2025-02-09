@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     private string currentSceneName;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject mainMenu;
     void Awake()
     {
         if (!instance)
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
         currentSceneName = SceneManager.GetActiveScene().name;
         AudioManager.instance.StopAudio(currentSceneName + "Music");
         SceneManager.LoadScene(sceneName);
+        Debug.Log("Changing scene");
     }
 
     // This function is called every time a new scene is loaded
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Play this");
                 AudioManager.instance.PlayAudio(level1Music, "Level_1Music", 0.01f, true);
+                mainMenu.SetActive(false);
             }
         }
         else if (scene.name == "Main_Menu")
@@ -57,6 +61,7 @@ public class GameManager : MonoBehaviour
             if (AudioManager.instance != null && mainMenuMusic != null)
             {
                 AudioManager.instance.PlayAudio(mainMenuMusic, "Main_MenuMusic", 0.1f, true);
+                mainMenu.SetActive(true);
             }
         }
         else if(scene.name == "Lobby")
@@ -64,6 +69,7 @@ public class GameManager : MonoBehaviour
             if (AudioManager.instance != null && lobbyMusic != null)
             {
                 AudioManager.instance.PlayAudio(lobbyMusic, "LobbyMusic", 0.1f, true);
+                mainMenu.SetActive(false);
             }
         }
     }
@@ -92,5 +98,6 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.StopAudio(currentSceneName + "Music");
         SceneManager.LoadScene("Main_Menu");
         Time.timeScale = 1;
+        pauseMenu.SetActive(false);
     }
 }

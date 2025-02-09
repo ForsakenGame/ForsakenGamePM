@@ -1,10 +1,17 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UIPersistance : MonoBehaviour
 {
-    public GameObject menu;
+    [SerializeField] EventSystem eventSystem;
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);  // Make sure the UI persists across scenes
+        if (FindObjectsOfType<UIPersistance>().Length > 1)
+        {
+            Destroy(gameObject);  // Destroy duplicate UI
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);  // Keep only the first UI instance
     }
 }
