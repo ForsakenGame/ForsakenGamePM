@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         {
             if (AudioManager.instance != null && level1Music != null)
             {
-                Debug.Log("Play this");
+                // Debug.Log("Play this");
                 AudioManager.instance.PlayAudio(level1Music, "Level_1Music", 0.01f, true);
                 mainMenu.SetActive(false);
             }
