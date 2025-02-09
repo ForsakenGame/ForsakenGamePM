@@ -15,4 +15,6 @@ MonoBehaviour:
   nextState: {fileID: 11400000, guid: e21b4b2a63a83d745af99de323d7aa09, type: 2}
   actionValue: 0
   action: {fileID: 11400000, guid: e308ff1a03d48954badef7c21dccf3e2, type: 2}
+  intervalAttack: 1.5
+  attackDuration: 10
   clip: {fileID: 7400000, guid: b2db7172b5ac3884989714074ebfca3e, type: 2}
