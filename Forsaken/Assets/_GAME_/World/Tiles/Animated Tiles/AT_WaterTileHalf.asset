@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: AT_WaterTileHalf
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 1509011190, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -1082683870, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -2093543623, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -1828990639, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -878211861, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -1198938363, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -168115551, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -151621736, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 161382044, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -81699139, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 1356932423, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -240437356, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 403004404, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: -1893257510, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 702827436, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  - {fileID: 1179972118, guid: e6091788d5ca2204b9a36c9d77335d1a, type: 3}
+  m_MinSpeed: 12
+  m_MaxSpeed: 12
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0

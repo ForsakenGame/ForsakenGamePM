@@ -47,6 +47,18 @@ TagManager:
   - name: Base
     uniqueID: 2859558295
     locked: 0
+  - name: Walls
+    uniqueID: 3177440575
+    locked: 0
+  - name: Details
+    uniqueID: 4274429223
+    locked: 0
+  - name: Water
+    uniqueID: 2633375465
+    locked: 0
+  - name: Bridges
+    uniqueID: 24196309
+    locked: 0
   - name: Props
     uniqueID: 2546128127
     locked: 0
