@@ -26,7 +26,6 @@ public class AudioManager : MonoBehaviour
 
         if (_activeSounds.ContainsKey(key))
         {
-            Debug.Log("Stopping previous audio: " + key);
             StopAudio(key);
         }
         // Create new audio object
@@ -52,7 +51,6 @@ public class AudioManager : MonoBehaviour
     // Function to stop audio
     public void StopAudio(string key)
     {
-        Debug.Log("Key:" + key);
         if (_activeSounds.ContainsKey(key))
         {
             AudioSource source = _activeSounds[key];
@@ -75,13 +73,16 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator CheckAudio(string key, AudioSource audioSource)
     {
-        yield return new WaitUntil(() => !audioSource.isPlaying);
+        yield return new WaitUntil(() => audioSource == null || !audioSource.isPlaying);
 
         if (_activeSounds.ContainsKey(key))
         {
             _activeSounds.Remove(key);
         }
 
-        Destroy(audioSource.gameObject);
+        if (audioSource != null)
+        {
+            Destroy(audioSource.gameObject);
+        }
     }
 }

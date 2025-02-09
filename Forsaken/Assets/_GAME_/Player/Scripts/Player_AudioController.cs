@@ -66,7 +66,6 @@ public class Player_AudioController : MonoBehaviour
         System.Random random = new System.Random();
         int i = random.Next(1, _footsteps.Count);
         AudioClip footstep = _footsteps[i];
-
         AudioManager.instance.enabled = true;
         AudioManager.instance.PlayAudio(footstep, "footstep" + i, 0.1f, false);
     }

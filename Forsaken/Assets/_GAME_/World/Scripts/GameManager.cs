@@ -38,13 +38,13 @@ public class GameManager : MonoBehaviour
         currentSceneName = SceneManager.GetActiveScene().name;
         AudioManager.instance.StopAudio(currentSceneName + "Music");
         SceneManager.LoadScene(sceneName);
-        Debug.Log("Changing scene");
+        // Debug.Log("Changing scene");
     }
 
     // This function is called every time a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-         Debug.Log("Scene loaded: " + scene.name);
+         // Debug.Log("Scene loaded: " + scene.name);
 
         // Scene checking to play the appropiate music
         if (scene.name == "Level_1")
