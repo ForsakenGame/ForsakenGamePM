@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a6656333feefd42b0fa7cb03556000, type: 3}
   m_Name: AttackState (S)
   m_EditorClassIdentifier: 
-  nextState: {fileID: 0}
+  nextState: {fileID: 11400000, guid: e21b4b2a63a83d745af99de323d7aa09, type: 2}
   actionValue: 0
-  action: {fileID: 0}
-  clip: {fileID: 0}
+  action: {fileID: 11400000, guid: e308ff1a03d48954badef7c21dccf3e2, type: 2}
+  clip: {fileID: 7400000, guid: b2db7172b5ac3884989714074ebfca3e, type: 2}
