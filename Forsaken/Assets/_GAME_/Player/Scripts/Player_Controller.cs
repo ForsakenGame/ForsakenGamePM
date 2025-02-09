@@ -22,11 +22,6 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] GameObject deathScreenCanvas;
     #endregion
 
-    #region Animator Data
-    public bool isRightClickHeld = false;
-    public bool isLeftClickHeld = false;
-    #endregion
-
     #region Internal Data
     private Vector2 _moveDir = Vector2.zero;
     private Directions _facingDirection = Directions.RIGHT;
@@ -446,8 +441,7 @@ public class Player_Controller : MonoBehaviour
         }
         // Show death screen and pause game
         // Checks if current playing animation has ended
-        
->>>>>>> forsaken-alex-develop
+   
     }
     #endregion
 
