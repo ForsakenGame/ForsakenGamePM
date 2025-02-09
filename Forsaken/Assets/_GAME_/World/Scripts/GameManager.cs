@@ -11,9 +11,12 @@ public class GameManager : MonoBehaviour
     public AudioClip lobbyMusic;
     public AudioClip level1Music;
 
+
     private string currentSceneName;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject deathScreen;
+    [SerializeField] GameObject healthBar;
     void Awake()
     {
         if (!instance)
@@ -54,6 +57,7 @@ public class GameManager : MonoBehaviour
                 // Debug.Log("Play this");
                 AudioManager.instance.PlayAudio(level1Music, "Level_1Music", 0.01f, true);
                 mainMenu.SetActive(false);
+                healthBar.SetActive(true);
             }
         }
         else if (scene.name == "Main_Menu")
@@ -88,7 +92,9 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Level_1");
+        // SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        deathScreen.SetActive(false);
         Time.timeScale = 1;
     }
 

@@ -444,7 +444,7 @@ public class Player_Controller : MonoBehaviour
 
     public void ShowDeathMenu()
     {
-        GameManager.instance.PauseGame();
+        Time.timeScale = 0;
         deathScreenCanvas.SetActive(true);
     }
 }
