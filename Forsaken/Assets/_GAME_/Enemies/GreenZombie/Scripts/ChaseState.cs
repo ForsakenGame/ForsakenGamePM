@@ -11,7 +11,7 @@ public class ChaseState : State
 
     public override void OnStateEnter(GameObject owner)
     {
-        player = FindObjectOfType<PlayerMovement>().gameObject;
+        player = player.GetComponent<PlayerMovement>().gameObject;
 
         navComponent = owner.GetComponent<NavMeshAgent>();
     }

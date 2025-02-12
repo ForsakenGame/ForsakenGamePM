@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f317e6f27581cca40a2e8a2055d828df, type: 3}
   m_Name: HearAction (A)
   m_EditorClassIdentifier: 
-  radius: 10
+  radius: 1

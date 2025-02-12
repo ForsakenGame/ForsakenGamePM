@@ -7,22 +7,18 @@ using UnityEngine.AI;
 
 public class GuardState : State
 {
-    public override State Run(GameObject owner)
-    {
-        GreenZombie_Controller enemyController = owner.GetComponent<GreenZombie_Controller>();
-        if (enemyController != null)
+    
+        public Vector3 guardPoint;
+        
+
+        public override State Run(GameObject owner)
         {
-            Vector3 guardPoint = enemyController.GetGuardPoint(); 
 
-            NavMeshAgent navMeshAgent = owner.GetComponent<NavMeshAgent>();
-            if (navMeshAgent != null)
-            {
-                navMeshAgent.SetDestination(guardPoint);  
-            }
+            owner.GetComponent<NavMeshAgent>().SetDestination(guardPoint);
+
+            return base.Run(owner);
         }
-
-        return base.Run(owner);
-    }
+    
 }
 
 

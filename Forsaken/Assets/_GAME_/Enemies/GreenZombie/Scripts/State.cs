@@ -15,6 +15,8 @@ public class State : ScriptableObject
 
     public virtual State Run(GameObject owner)
     {
+        owner.transform.rotation = Quaternion.identity;
+
         if (CheckAction(owner))
         {
             return nextState;
