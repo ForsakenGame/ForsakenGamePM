@@ -15,7 +15,9 @@ public abstract class State : ScriptableObject
 
     public virtual State Run(GameObject owner)
     {
-        if(CheckAction(owner))
+        owner.transform.rotation = Quaternion.identity; // lo giuramos porq en 2D xd
+
+        if (CheckAction(owner))
         {
             return nextState;
         }

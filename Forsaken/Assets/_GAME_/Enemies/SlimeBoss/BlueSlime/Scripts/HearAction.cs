@@ -9,12 +9,12 @@ public class HearAction : Action
 
     public override bool Check(GameObject owner)
     {
-        Collider[] hits = Physics.OverlapSphere(owner.transform.position,
-            radius);
+        //Collider[] hits = Physics.OverlapSphere(owner.transform.position, radius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(owner.transform.position, radius);
 
-        foreach (Collider hit in hits)
+        foreach (Collider2D hit in hits)
         {
-            if(hit.GetComponent<PlayerMovment>())
+            if(hit.GetComponent<Player_Controller>())
             {
                 // estoy escuchando al jugador
                 return true;
