@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     public State initialState;
-    private State _currentState;
+    public State _currentState;
     Animator _animator;
 
     // Start is called before the first frame update
@@ -30,6 +30,9 @@ public class StateMachine : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        _currentState?.action.DrawGizmos(gameObject);
+        if(_currentState)
+            _currentState.action.DrawGizmos(gameObject);
+        else
+            initialState.action.DrawGizmos(gameObject);
     }
 }

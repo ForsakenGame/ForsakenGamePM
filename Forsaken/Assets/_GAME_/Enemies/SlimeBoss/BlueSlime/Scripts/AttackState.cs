@@ -13,15 +13,7 @@ public class AttackState : State
 
     public override State Run(GameObject owner)
     {
-
- 
-
-        // Asegurar que el tiempo de ataque se inicializa correctamente al comienzo
-        if (Time.time == 0)
-        {
-            nextAttackTime = 0; // Inicializa al tiempo actual
-        }
-
+        nextAttackTime += Time.deltaTime;
 
         // Obtener el Animator del owner para reproducir la animación de ataque
         Animator animator = owner.GetComponent<Animator>();
@@ -35,17 +27,17 @@ public class AttackState : State
         Debug.Log("Time.time: " + Time.time + ", nextAttackTime: " + nextAttackTime);
 
         // Verificar si ha pasado suficiente tiempo para disparar de nuevo
-        if (Time.time >= nextAttackTime)
+        if (nextAttackTime >= intervalAttack)
         {
             shooter.Shoot(); // Ejecutar el disparo desde el slime
 
             // Establecer el tiempo del siguiente disparo
-            nextAttackTime = Time.time + intervalAttack;
+            nextAttackTime = 0;
 
             Debug.Log("Disparo realizado. El siguiente será en " + intervalAttack + " segundos.");
         }
 
         // Retornar el estado actual o manejar la transición a otros estados
-        return this;
+        return base.Run(owner);
     }
 }
