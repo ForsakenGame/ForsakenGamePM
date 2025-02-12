@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 219fbfd6923dae448bc480e1198bd699
+guid: baabf4dcfce819746b2d0cf5f29d5584
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_0
+      name: Zombie Death-Sheet 16x32_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 96
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b5323a94baa6694a81d142222a7a0c5
-      internalID: 1352089291
+      spriteID: 862ee7d9548d8f247b06101a357adb88
+      internalID: -2105183403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_1
+      name: Zombie Death-Sheet 16x32_1
       rect:
         serializedVersion: 2
         x: 16
-        y: 48
+        y: 96
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6600135dad7d6594faed3fe0725c4883
-      internalID: -77679896
+      spriteID: 760f50cca4906944ca02ddf6ea387f79
+      internalID: -1424137485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_2
+      name: Zombie Death-Sheet 16x32_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 48
+        y: 96
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 394abf8bbed46524f86aad34a0db2284
-      internalID: 209396237
+      spriteID: d6d69a7bf27d7af488056629813b5e10
+      internalID: 1062641206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_3
+      name: Zombie Death-Sheet 16x32_3
       rect:
         serializedVersion: 2
         x: 48
-        y: 48
+        y: 96
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53c58024f2116c844802d205a751da85
-      internalID: -1479158432
+      spriteID: de2ab7a0eba52284c927a30f5a3c2a91
+      internalID: 1575342286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_4
+      name: Zombie Death-Sheet 16x32_4
       rect:
         serializedVersion: 2
         x: 64
-        y: 48
+        y: 96
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a5615a3a66788a4e92b89f25ccce5eb
-      internalID: -903596899
+      spriteID: f47613a0246f24542a7dd4e3d6c85d64
+      internalID: 2017132494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_5
+      name: Zombie Death-Sheet 16x32_5
       rect:
         serializedVersion: 2
         x: 80
-        y: 48
+        y: 96
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e18a8c7e53616c942b85da2ed6c3aa71
-      internalID: 135101964
+      spriteID: b4416c253aefcdf41b5ff71b5e98df2d
+      internalID: 1090610316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_6
+      name: Zombie Death-Sheet 16x32_6
       rect:
         serializedVersion: 2
         x: 96
-        y: 48
+        y: 96
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd50f1422679023458c5b22141523266
-      internalID: -1998122429
+      spriteID: 2462e151ccb7fef4a9aa69612d04317b
+      internalID: -862440474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_7
+      name: Zombie Death-Sheet 16x32_7
       rect:
         serializedVersion: 2
         x: 112
-        y: 48
+        y: 96
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +258,188 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5b390ba5abf57447a74e1f357b4ac6c
-      internalID: 1174929365
+      spriteID: d7e70800d3fcb4447b1f99bed1c4147a
+      internalID: -1329503654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_8
+      name: Zombie Death-Sheet 16x32_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96261612523f42e40ac93384a6bd19ca
+      internalID: -285788870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie Death-Sheet 16x32_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afbd8bfd04c912d45aa945cf3787dfaa
+      internalID: 1096791504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie Death-Sheet 16x32_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1564f31f8f70d274ea394142a1a7baef
+      internalID: 968506457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie Death-Sheet 16x32_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547e8fcdbb44a094ba3efdb8a9345240
+      internalID: -468863457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie Death-Sheet 16x32_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c78fbaf414b8fc249bb8cd1f5fdcfdd9
+      internalID: -1610132827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie Death-Sheet 16x32_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fba44ec2cf6a3b14e9635b5b7602b315
+      internalID: -878542306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie Death-Sheet 16x32_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0afb64cce164245b31afb2e0351792
+      internalID: 794118549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie Death-Sheet 16x32_15
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfa3f60699db07241b254ef1017de7c6
+      internalID: 1717511664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie Death-Sheet 16x32_16
       rect:
         serializedVersion: 2
         x: 0
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +447,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5322d09c5991674f9cdae1545be293e
-      internalID: -542186376
+      spriteID: e38e361d8f9fad145a2842493fc14a3d
+      internalID: 1376679924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_9
+      name: Zombie Death-Sheet 16x32_17
       rect:
         serializedVersion: 2
         x: 16
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +468,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec32b2d858f426d4bae008cbf5394895
-      internalID: 1573164051
+      spriteID: c718aab83fc6b2b40b94ec0a8a611374
+      internalID: 1289134479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_10
+      name: Zombie Death-Sheet 16x32_18
       rect:
         serializedVersion: 2
         x: 32
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +489,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a67bdec39cd14e34d93aa0a25cca31f4
-      internalID: 1904306383
+      spriteID: c16d9dbb4800b354ba35aad6e99a502e
+      internalID: -919374567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_11
+      name: Zombie Death-Sheet 16x32_19
       rect:
         serializedVersion: 2
         x: 48
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,20 +510,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fdf1399d809ea14bb3cccffbe0d941f
-      internalID: -355463223
+      spriteID: 2cd6ea611da2d0b4787f7bbad0337f30
+      internalID: -769049883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_12
+      name: Zombie Death-Sheet 16x32_20
       rect:
         serializedVersion: 2
         x: 64
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,20 +531,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c40e6d0f95f0c8e429cc7f91e5f66310
-      internalID: -2086671255
+      spriteID: 405ecf0bfebabf24d9f15d303067d2f2
+      internalID: 1674691865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_13
+      name: Zombie Death-Sheet 16x32_21
       rect:
         serializedVersion: 2
         x: 80
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,20 +552,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53c90cbe00b40b348b8ff230b15aa4f3
-      internalID: 1183021594
+      spriteID: 75b3ec0a3557c754eb96e00c4a290c78
+      internalID: 1891707402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_14
+      name: Zombie Death-Sheet 16x32_22
       rect:
         serializedVersion: 2
         x: 96
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,20 +573,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3dc24bc78be87c44a389bdb37027851
-      internalID: 1690459938
+      spriteID: baca6262771d95a42aa7f153ab788dab
+      internalID: 1338398632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_15
+      name: Zombie Death-Sheet 16x32_23
       rect:
         serializedVersion: 2
         x: 112
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,188 +594,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 811b10e7ea43fb2458a63b74da2524bc
-      internalID: 421689202
+      spriteID: 875fdbe4e92278e4d9bd17ed7f50020a
+      internalID: 1481446976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca1218cd8d99688458880b5b24a5c218
-      internalID: -1922801761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_17
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad3356327674a504e90e82678792bd0f
-      internalID: -233060133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_18
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a793468223dc50540b40f50604519d3a
-      internalID: 2013011632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_19
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9881c01c0a61a3e41b302178d4d4b8c2
-      internalID: -156916947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_20
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73a1670d2e77f734786900748afaa8ae
-      internalID: -316518974
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_21
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 084f284ca3658714490dd8ded2ad87ae
-      internalID: -2092488061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_22
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca99489431adfc942895362091fd831b
-      internalID: 606068468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_23
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38c997ee7ca82694aa2878d61ffe10dd
-      internalID: 1361238195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_24
+      name: Zombie Death-Sheet 16x32_24
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,20 +615,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98512f4b76425cf41a87c68179698bf5
-      internalID: -1752870184
+      spriteID: 62b7e43e0f9468b48ae79211fccb8f39
+      internalID: 593992601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_25
+      name: Zombie Death-Sheet 16x32_25
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -636,20 +636,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11eefa758fe277c4888e1c5bf4820253
-      internalID: 718570394
+      spriteID: 5b41b37f872fdc54dab24a106e8d8a48
+      internalID: -505508898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_26
+      name: Zombie Death-Sheet 16x32_26
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -657,20 +657,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cc72ae345eeb1f4fae9d31db4a045e1
-      internalID: -2057030153
+      spriteID: f2d06fd996879d245b64ec80ea33b40e
+      internalID: -728107163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_27
+      name: Zombie Death-Sheet 16x32_27
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -678,20 +678,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3161625723f7ae94b872ceab3f9f96a6
-      internalID: -102393871
+      spriteID: e12f15bb4c06161439348b08f6276ad2
+      internalID: 1024164570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_28
+      name: Zombie Death-Sheet 16x32_28
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -699,20 +699,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e182f9c0dcf68e4394cfd04a8dcecd0
-      internalID: -1412182405
+      spriteID: c775e8d2a15528c4ea48c76fa174d8a6
+      internalID: 919359530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_29
+      name: Zombie Death-Sheet 16x32_29
       rect:
         serializedVersion: 2
         x: 80
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -720,20 +720,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07ba17d0ea897bb4f994df7043ca2c70
-      internalID: -1748420111
+      spriteID: ef9e046857c58c04e9b4f55066675489
+      internalID: 871765683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_30
+      name: Zombie Death-Sheet 16x32_30
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -741,20 +741,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5243c6f193aac514d8e1b29f9eebc47b
-      internalID: 1434655256
+      spriteID: c9bb92bef536e754eb7791bc8dc2f455
+      internalID: -1112878515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie Run-Sheet 1 16x16_31
+      name: Zombie Death-Sheet 16x32_31
       rect:
         serializedVersion: 2
         x: 112
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -762,8 +762,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6ff1aa5d9586b744a4425b591139737
-      internalID: 1370718863
+      spriteID: 2679ce5dec7108b41a289e8f2eeaa468
+      internalID: -1504059357
       vertices: []
       indices: 
       edges: []
@@ -779,38 +779,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Zombie Run-Sheet 1 16x16_0: 1352089291
-      Zombie Run-Sheet 1 16x16_1: -77679896
-      Zombie Run-Sheet 1 16x16_10: 1904306383
-      Zombie Run-Sheet 1 16x16_11: -355463223
-      Zombie Run-Sheet 1 16x16_12: -2086671255
-      Zombie Run-Sheet 1 16x16_13: 1183021594
-      Zombie Run-Sheet 1 16x16_14: 1690459938
-      Zombie Run-Sheet 1 16x16_15: 421689202
-      Zombie Run-Sheet 1 16x16_16: -1922801761
-      Zombie Run-Sheet 1 16x16_17: -233060133
-      Zombie Run-Sheet 1 16x16_18: 2013011632
-      Zombie Run-Sheet 1 16x16_19: -156916947
-      Zombie Run-Sheet 1 16x16_2: 209396237
-      Zombie Run-Sheet 1 16x16_20: -316518974
-      Zombie Run-Sheet 1 16x16_21: -2092488061
-      Zombie Run-Sheet 1 16x16_22: 606068468
-      Zombie Run-Sheet 1 16x16_23: 1361238195
-      Zombie Run-Sheet 1 16x16_24: -1752870184
-      Zombie Run-Sheet 1 16x16_25: 718570394
-      Zombie Run-Sheet 1 16x16_26: -2057030153
-      Zombie Run-Sheet 1 16x16_27: -102393871
-      Zombie Run-Sheet 1 16x16_28: -1412182405
-      Zombie Run-Sheet 1 16x16_29: -1748420111
-      Zombie Run-Sheet 1 16x16_3: -1479158432
-      Zombie Run-Sheet 1 16x16_30: 1434655256
-      Zombie Run-Sheet 1 16x16_31: 1370718863
-      Zombie Run-Sheet 1 16x16_4: -903596899
-      Zombie Run-Sheet 1 16x16_5: 135101964
-      Zombie Run-Sheet 1 16x16_6: -1998122429
-      Zombie Run-Sheet 1 16x16_7: 1174929365
-      Zombie Run-Sheet 1 16x16_8: -542186376
-      Zombie Run-Sheet 1 16x16_9: 1573164051
+      Zombie Death-Sheet 16x32_0: -2105183403
+      Zombie Death-Sheet 16x32_1: -1424137485
+      Zombie Death-Sheet 16x32_10: 968506457
+      Zombie Death-Sheet 16x32_11: -468863457
+      Zombie Death-Sheet 16x32_12: -1610132827
+      Zombie Death-Sheet 16x32_13: -878542306
+      Zombie Death-Sheet 16x32_14: 794118549
+      Zombie Death-Sheet 16x32_15: 1717511664
+      Zombie Death-Sheet 16x32_16: 1376679924
+      Zombie Death-Sheet 16x32_17: 1289134479
+      Zombie Death-Sheet 16x32_18: -919374567
+      Zombie Death-Sheet 16x32_19: -769049883
+      Zombie Death-Sheet 16x32_2: 1062641206
+      Zombie Death-Sheet 16x32_20: 1674691865
+      Zombie Death-Sheet 16x32_21: 1891707402
+      Zombie Death-Sheet 16x32_22: 1338398632
+      Zombie Death-Sheet 16x32_23: 1481446976
+      Zombie Death-Sheet 16x32_24: 593992601
+      Zombie Death-Sheet 16x32_25: -505508898
+      Zombie Death-Sheet 16x32_26: -728107163
+      Zombie Death-Sheet 16x32_27: 1024164570
+      Zombie Death-Sheet 16x32_28: 919359530
+      Zombie Death-Sheet 16x32_29: 871765683
+      Zombie Death-Sheet 16x32_3: 1575342286
+      Zombie Death-Sheet 16x32_30: -1112878515
+      Zombie Death-Sheet 16x32_31: -1504059357
+      Zombie Death-Sheet 16x32_4: 2017132494
+      Zombie Death-Sheet 16x32_5: 1090610316
+      Zombie Death-Sheet 16x32_6: -862440474
+      Zombie Death-Sheet 16x32_7: -1329503654
+      Zombie Death-Sheet 16x32_8: -285788870
+      Zombie Death-Sheet 16x32_9: 1096791504
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
