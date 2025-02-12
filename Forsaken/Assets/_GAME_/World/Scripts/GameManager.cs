@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
 
     private string currentSceneName;
-    [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject healthBar;
@@ -81,13 +80,11 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        pauseMenu.SetActive(false);
     }
 
     public void RestartGame()
@@ -104,6 +101,6 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.StopAudio(currentSceneName + "Music");
         SceneManager.LoadScene("Main_Menu");
         Time.timeScale = 1;
-        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }
