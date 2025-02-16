@@ -11,11 +11,7 @@ public class GameManager : MonoBehaviour
     public AudioClip lobbyMusic;
     public AudioClip level1Music;
 
-
     private string currentSceneName;
-    [SerializeField] GameObject mainMenu;
-    [SerializeField] GameObject deathScreen;
-    [SerializeField] GameObject healthBar;
     void Awake()
     {
         if (!instance)
@@ -55,8 +51,6 @@ public class GameManager : MonoBehaviour
             {
                 // Debug.Log("Play this");
                 AudioManager.instance.PlayAudio(level1Music, "Level_1Music", 0.01f, true);
-                mainMenu.SetActive(false);
-                healthBar.SetActive(true);
             }
         }
         else if (scene.name == "Main_Menu")
@@ -64,7 +58,6 @@ public class GameManager : MonoBehaviour
             if (AudioManager.instance != null && mainMenuMusic != null)
             {
                 AudioManager.instance.PlayAudio(mainMenuMusic, "Main_MenuMusic", 0.1f, true);
-                mainMenu.SetActive(true);
             }
         }
         else if(scene.name == "Lobby")
@@ -72,7 +65,6 @@ public class GameManager : MonoBehaviour
             if (AudioManager.instance != null && lobbyMusic != null)
             {
                 AudioManager.instance.PlayAudio(lobbyMusic, "LobbyMusic", 0.1f, true);
-                mainMenu.SetActive(false);
             }
         }
     }
@@ -91,7 +83,6 @@ public class GameManager : MonoBehaviour
     {
         // SceneManager.LoadScene("Level_1");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        deathScreen.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -100,7 +91,6 @@ public class GameManager : MonoBehaviour
         currentSceneName = SceneManager.GetActiveScene().name;
         AudioManager.instance.StopAudio(currentSceneName + "Music");
         SceneManager.LoadScene("Main_Menu");
-        Time.timeScale = 1;
         Time.timeScale = 1;
     }
 }

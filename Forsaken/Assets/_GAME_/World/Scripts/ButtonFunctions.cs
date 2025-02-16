@@ -13,4 +13,14 @@ public class ButtonFunctions : MonoBehaviour
     {
         GameManager.instance.ResumeGame();
     }
+
+    public void RestartGame()
+    { 
+        GameManager.instance.RestartGame();
+    }
+
+    public void GoToMainMenu()
+    {
+        GameManager.instance.GoToMainMenuScene();
+    }
 }

@@ -107,9 +107,7 @@ public class Player_Controller : MonoBehaviour
         GatherInput();   
         CalculateFacingDirection();
         UpdateAnimation();
-        SaveLastUsedItem();
-
-       
+        SaveLastUsedItem();   
     }
     private void FixedUpdate()
     {
@@ -432,10 +430,7 @@ public class Player_Controller : MonoBehaviour
             {
                 _animator.CrossFade(_animDeathGunDown, 0);
             }
-        }
-        // Show death screen and pause game
-        // Checks if current playing animation has ended
-        
+        }        
     }
     #endregion
 
