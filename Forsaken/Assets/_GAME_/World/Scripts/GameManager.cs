@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public AudioClip mainMenuMusic;
     public AudioClip lobbyMusic;
     public AudioClip level1Music;
+    public AudioClip level2Music;
     public AudioClip endOfLevelMusic;
     public bool isBossAlive;
     private string currentSceneName;
@@ -55,6 +56,13 @@ public class GameManager : MonoBehaviour
             {
                 // Debug.Log("Play this");
                 AudioManager.instance.PlayAudio(level1Music, "Level_1Music", 0.1f, true);
+            }
+        }
+        else if (scene.name == "Level_2")
+        {
+            if (AudioManager.instance != null && mainMenuMusic != null)
+            {
+                AudioManager.instance.PlayAudio(level2Music, "Level_2Music", 0.1f, true);
             }
         }
         else if (scene.name == "Main_Menu")
