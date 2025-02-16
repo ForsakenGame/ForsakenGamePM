@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a6656333feefd42b0fa7cb03556000, type: 3}
-  m_Name: AttackState (S)
+  m_Script: {fileID: 11500000, guid: 12e7101f6059c1f4f81d13ce5513307f, type: 3}
+  m_Name: SpawnState (S)
   m_EditorClassIdentifier: 
   nextState: {fileID: 11400000, guid: e21b4b2a63a83d745af99de323d7aa09, type: 2}
-  actionValue: 0
-  action: {fileID: 11400000, guid: e308ff1a03d48954badef7c21dccf3e2, type: 2}
-  intervalAttack: 1.5
-  clip: {fileID: 7400000, guid: d79179f3ad672764e962782af4b99a75, type: 2}
+  actionValue: 1
+  action: {fileID: 11400000, guid: d91910e0d8f9dce449f64ca9ce0fd6a3, type: 2}
+  clip: {fileID: 7400000, guid: 044efa18193173948b3dd81782ef27d5, type: 2}
