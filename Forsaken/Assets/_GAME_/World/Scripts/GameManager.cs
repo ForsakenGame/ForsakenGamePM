@@ -10,8 +10,13 @@ public class GameManager : MonoBehaviour
     public AudioClip mainMenuMusic;
     public AudioClip lobbyMusic;
     public AudioClip level1Music;
-
+    public AudioClip endOfLevelMusic;
+    public bool isBossAlive;
     private string currentSceneName;
+    public GameObject BossHealthBar;
+
+    public List<Animator> targetAnimators;
+    public List<Collider2D> doorColliders;
     void Awake()
     {
         if (!instance)
@@ -92,5 +97,33 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.StopAudio(currentSceneName + "Music");
         SceneManager.LoadScene("Main_Menu");
         Time.timeScale = 1;
+    }
+
+    public void BossEnd()
+    {
+        if (!isBossAlive)
+        {
+            BossHealthBar.SetActive(false);
+
+            foreach (var targetAnimator in targetAnimators)
+            {
+                targetAnimator.SetTrigger("Open");
+            }
+
+            // Disable Collider After Animation Completes
+            StartCoroutine(DisableColliderAfterDelay(0.1f));
+            // Switch Music
+            AudioManager.instance.StopAudio("BossMusic");
+            AudioManager.instance.PlayAudio(endOfLevelMusic, "EndLevel_1Music", 1, true);
+        }
+    }
+
+    private IEnumerator DisableColliderAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        foreach (var doorCollider in doorColliders)
+        {
+            doorCollider.enabled = false;
+        }
     }
 }
