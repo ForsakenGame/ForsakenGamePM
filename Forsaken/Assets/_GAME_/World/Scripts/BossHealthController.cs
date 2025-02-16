@@ -8,6 +8,7 @@ public class BossHealthController : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar;
+    public GameObject bossHealthBar;
 
     private BossRoomBehaviour _bossScript;
     private void Start()
@@ -35,6 +36,7 @@ public class BossHealthController : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
+            bossHealthBar.SetActive(false);
             GameManager.instance.isBossAlive = false;
             GameManager.instance.BossEnd();
         }

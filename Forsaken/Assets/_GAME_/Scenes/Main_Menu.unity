@@ -1653,9 +1653,18 @@ MonoBehaviour:
   mainMenuMusic: {fileID: 8300000, guid: 395fe6ad1aac0414f9b79605edef8924, type: 3}
   lobbyMusic: {fileID: 8300000, guid: 4b73a56a7991258429127757086a7916, type: 3}
   level1Music: {fileID: 8300000, guid: 59890b4ce115a0e4ea00c952a9e387ec, type: 3}
-  mainMenu: {fileID: 672262948}
-  deathScreen: {fileID: 0}
-  healthBar: {fileID: 0}
+  endOfLevelMusic: {fileID: 8300000, guid: 6414b1d34d79c2b448fad7695fee63fd, type: 3}
+  isBossAlive: 0
+  targetAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  doorColliders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1481474445
 Transform:
   m_ObjectHideFlags: 0

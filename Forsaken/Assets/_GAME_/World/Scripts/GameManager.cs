@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public AudioClip endOfLevelMusic;
     public bool isBossAlive;
     private string currentSceneName;
-    public GameObject BossHealthBar;
 
     public List<Animator> targetAnimators;
     public List<Collider2D> doorColliders;
@@ -55,7 +54,7 @@ public class GameManager : MonoBehaviour
             if (AudioManager.instance != null && level1Music != null)
             {
                 // Debug.Log("Play this");
-                AudioManager.instance.PlayAudio(level1Music, "Level_1Music", 0.01f, true);
+                AudioManager.instance.PlayAudio(level1Music, "Level_1Music", 0.1f, true);
             }
         }
         else if (scene.name == "Main_Menu")
@@ -101,10 +100,9 @@ public class GameManager : MonoBehaviour
 
     public void BossEnd()
     {
+        FindAnimatorsAndColliders();
         if (!isBossAlive)
         {
-            BossHealthBar.SetActive(false);
-
             foreach (var targetAnimator in targetAnimators)
             {
                 targetAnimator.SetTrigger("Open");
@@ -114,7 +112,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(DisableColliderAfterDelay(0.1f));
             // Switch Music
             AudioManager.instance.StopAudio("BossMusic");
-            AudioManager.instance.PlayAudio(endOfLevelMusic, "EndLevel_1Music", 1, true);
+            AudioManager.instance.PlayAudio(endOfLevelMusic, "EndLevel_1Music", 0.1f, true);
         }
     }
 
@@ -124,6 +122,28 @@ public class GameManager : MonoBehaviour
         foreach (var doorCollider in doorColliders)
         {
             doorCollider.enabled = false;
+        }
+    }
+
+    private void FindAnimatorsAndColliders()
+    {
+        targetAnimators.Clear();
+        doorColliders.Clear();
+
+        // Find all animators tagged as "Door"
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Door"))
+        {
+            Animator animator = obj.GetComponent<Animator>();
+            if (animator != null)
+            {
+                targetAnimators.Add(animator);
+            }
+
+            Collider2D collider = obj.GetComponent<Collider2D>();
+            if (collider != null)
+            {
+                doorColliders.Add(collider);
+            }
         }
     }
 }
