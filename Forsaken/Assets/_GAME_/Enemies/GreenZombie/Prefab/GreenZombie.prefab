@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5619798252176429829}
   - component: {fileID: 2440596322247743879}
   - component: {fileID: 4191261519424845854}
-  - component: {fileID: 2194688899531260933}
+  - component: {fileID: -1096489076923552017}
   m_Layer: 0
   m_Name: GreenZombie
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 5697449370336986149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9013, y: -5.2813, z: 0}
-  m_LocalScale: {x: 0.7225, y: 0.7225, z: 0.7225}
+  m_LocalPosition: {x: 2.0459, y: -5.1367, z: 0}
+  m_LocalScale: {x: 1.0117905, y: 1.0117905, z: 1.0117905}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 897768025
-  m_SortingLayer: 4
+  m_SortingLayer: 8
   m_SortingOrder: 5
   m_Sprite: {fileID: -2065515571, guid: 3691e3b920687214ab72046a368ada69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -181,7 +181,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2194688899531260933
+--- !u!114 &-1096489076923552017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,8 +193,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654eca1677acc6a4c8fd56a984abc940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 50
-  _rb: {fileID: 2440596322247743879}
-  _animator: {fileID: 4191261519424845854}
-  _spriteRenderer: {fileID: 6090834471654449079}
-  _player: {fileID: 0}
+  player: {fileID: 0}
+  detectionRadius: 10
+  speed: 2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  stopDistance: 1
+  attackDistance: 0.5
+  backAnimation: {fileID: 7400000, guid: 23ee14cbfd66fb1418aba9d77f920169, type: 2}
+  frontAnimation: {fileID: 7400000, guid: a6e2cacc99c47664e919b05dd68bbceb, type: 2}
+  leftAnimation: {fileID: 7400000, guid: 03727e90690fd5d4e9cbd1e6d871099c, type: 2}
+  rightAnimation: {fileID: 7400000, guid: 6f5539a602cc05f4996d6d64594b5a3b, type: 2}
+  idleAnimation: {fileID: 7400000, guid: 531cf16d0b9288b448b9302fc5d67906, type: 2}
+  attackAnimation: {fileID: 7400000, guid: 45bd17118d2559e4599431194b38bd2e, type: 2}
