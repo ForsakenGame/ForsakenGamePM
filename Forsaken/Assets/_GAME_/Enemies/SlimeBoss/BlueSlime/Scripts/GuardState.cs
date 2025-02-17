@@ -14,10 +14,23 @@ public class GuardState : State
         Animator animator = owner.GetComponent<Animator>();
 
         animator.Play(clip.name);
-        
+
+        CircleShoot shooter = owner.GetComponent<CircleShoot>();
 
         owner.GetComponent<NavMeshAgent>().SetDestination(guardPoint);
 
+        Debug.Log(owner.transform.position + "   ///   " + guardPoint);
+
+        if (Vector3.Distance(owner.transform.position, guardPoint) < 0.1f)
+        {
+            Debug.Log("Ha entrado, las posiciones son prácticamente iguales");
+
+            //guardPoint = GetGuardPoint(); // Asignar un nuevo punto de patrulla
+
+            Debug.Log("Nuevo punto de guardia: " + guardPoint);
+        }
+
         return base.Run(owner);
     }
+
 }
