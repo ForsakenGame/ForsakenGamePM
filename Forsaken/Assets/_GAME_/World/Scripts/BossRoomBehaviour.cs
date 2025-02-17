@@ -8,6 +8,8 @@ public class BossRoomBehaviour : MonoBehaviour
     public List<Animator> targetAnimators;
     public GameObject BossHealthBar;
     public AudioClip bossMusic;
+    public GameObject player;
+    public GameObject boss;
     public CinemachineVirtualCamera virtualCamera;
     private bool hasPlayed = false;
 
@@ -29,6 +31,7 @@ public class BossRoomBehaviour : MonoBehaviour
             if (virtualCamera != null)
             {
                 StartCoroutine(SmoothCameraTransition(7, 1));
+                StartCoroutine(SmoothCameraTransitionToBoss(player, boss, 0.5f));
             }
 
             StartCoroutine(ChangeTriggersToColliders());
@@ -50,6 +53,44 @@ public class BossRoomBehaviour : MonoBehaviour
 
         virtualCamera.m_Lens.OrthographicSize = targetSize; // Ensure it reaches the exact target size
     }
+
+    private IEnumerator SmoothCameraTransitionToBoss(GameObject player, GameObject target, float duration)
+    {
+        // Move the camera to follow the target
+        virtualCamera.Follow = target.transform;
+
+        Vector3 playerPos = player.transform.position;
+        Vector3 targetPos = target.transform.position;
+        float elapsedTime = 0f;
+
+        // Transition from player to target position
+        while (elapsedTime < duration)
+        {
+            virtualCamera.transform.position = Vector3.Lerp(playerPos, targetPos, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        virtualCamera.transform.position = targetPos;
+
+        yield return new WaitForSeconds(duration);
+
+        // Now transition back to the player's position
+        elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            virtualCamera.transform.position = Vector3.Lerp(targetPos, playerPos, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the camera is exactly at the player's position at the end of the transition
+        virtualCamera.transform.position = playerPos;
+
+        // Set the camera to follow the player again
+        virtualCamera.Follow = player.transform;
+    }
+
 
     private IEnumerator ChangeTriggersToColliders()
     {
