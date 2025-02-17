@@ -1651,10 +1651,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 8300000, guid: 395fe6ad1aac0414f9b79605edef8924, type: 3}
-  lobbyMusic: {fileID: 8300000, guid: 4b73a56a7991258429127757086a7916, type: 3}
-  level1Music: {fileID: 8300000, guid: 59890b4ce115a0e4ea00c952a9e387ec, type: 3}
+  lobbyMusic: {fileID: 8300000, guid: 5e506039faded1641b35ea7f81da3e8f, type: 3}
+  level1Music: {fileID: 8300000, guid: ccfea981f29917a4b9e9f8c6a0d56df3, type: 3}
   level2Music: {fileID: 8300000, guid: 7cbaa76baa3a40846bcf798bb52d9ff5, type: 3}
   endOfLevelMusic: {fileID: 8300000, guid: 6414b1d34d79c2b448fad7695fee63fd, type: 3}
+  endOfLevel2Music: {fileID: 8300000, guid: 07b6378050ab85c4bb61937724793b55, type: 3}
+  creditsMusic: {fileID: 8300000, guid: 1eec0ec92e391614e849304a81b64134, type: 3}
   isBossAlive: 0
   targetAnimators:
   - {fileID: 0}

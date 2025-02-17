@@ -26,6 +26,7 @@ public class BossRoomBehaviour : MonoBehaviour
 
             // Play Boss Music
             AudioManager.instance.StopAudio("Level_1Music");
+            AudioManager.instance.StopAudio("Level_2Music");
             AudioManager.instance.PlayAudio(bossMusic, "BossMusic", 0.1f, true);
 
             if (virtualCamera != null)

@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public AudioClip level1Music;
     public AudioClip level2Music;
     public AudioClip endOfLevelMusic;
+    public AudioClip endOfLevel2Music;
+    public AudioClip creditsMusic;
     public bool isBossAlive;
     private string currentSceneName;
 
@@ -62,7 +64,16 @@ public class GameManager : MonoBehaviour
         {
             if (AudioManager.instance != null && mainMenuMusic != null)
             {
+                AudioManager.instance.StopAudio("EndLevel_1Music");
                 AudioManager.instance.PlayAudio(level2Music, "Level_2Music", 0.1f, true);
+            }
+        }
+        else if (scene.name == "Credits")
+        {
+            if (AudioManager.instance != null && mainMenuMusic != null)
+            {
+                AudioManager.instance.StopAudio("EndLevel_2Music");
+                AudioManager.instance.PlayAudio(creditsMusic, "CreditsMusic", 0.1f, true);
             }
         }
         else if (scene.name == "Main_Menu")
@@ -120,7 +131,15 @@ public class GameManager : MonoBehaviour
             StartCoroutine(DisableColliderAfterDelay(0.1f));
             // Switch Music
             AudioManager.instance.StopAudio("BossMusic");
-            AudioManager.instance.PlayAudio(endOfLevelMusic, "EndLevel_1Music", 0.1f, true);
+            if(currentSceneName == "Lobby")
+            {
+                AudioManager.instance.PlayAudio(endOfLevelMusic, "EndLevel_1Music", 0.1f, true);
+            }
+            else
+            {
+                //Debug.Log(currentSceneName);
+                AudioManager.instance.PlayAudio(endOfLevel2Music, "EndLevel_2Music", 0.1f, true);
+            }
         }
     }
 
