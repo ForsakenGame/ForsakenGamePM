@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 34c885c08b98acf42b05bcc6ce6483d6
+guid: 3f61feeab559041469d3e0e1700cd789
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,181 +110,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Set 4.04_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 37
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bb161c5d87c8b741b90ff719554ae44
-      internalID: -412876204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Set 4.04_1
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 37
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 851904e5fcad69d46b980253d872a000
-      internalID: -1007453356
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Set 4.04_2
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 37
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1aa1d670264b54844a9ada1031ed3a3a
-      internalID: 1748772328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Set 4.04_3
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 37
-        width: 13
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14b57ea85669bc040b1bfb2b4ea3323b
-      internalID: -304082884
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Set 4.04_4
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 37
-        width: 13
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8154b768355773d4ba192a5be5d0938e
-      internalID: 537878314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Set 4.04_5
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32ca9f691e9f5f34292f0b90172fe92a
-      internalID: 1165685437
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Set 4.04_6
+      name: Torch Red L_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39d6e62cbb51cae43ab4ef36dcc26edc
-      internalID: -260453058
+      spriteID: 836653157f3b1244d93131095f6f655a
+      internalID: -1886800493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set 4.04_7
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f2725f913ffe2642a9ef5d700e85eaf
-      internalID: 1814894748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Set 4.04_8
+      name: Torch Red L_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14e4b74fd6ae66f4ca81a5f78c2660c4
-      internalID: 1427663828
+      spriteID: 492ddb3db0e535a4da8236ecfbb2a56c
+      internalID: -1170768087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set 4.04_9
+      name: Torch Red L_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb15325178988c04d9c7b1700e72b06f
-      internalID: -429067382
+      spriteID: 1f9c04e134a6a3c4495468937c79f46e
+      internalID: 126704397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set 4.04_10
+      name: Torch Red L_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,20 +187,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c967d2b10dbbabf478ae45a9b305e45c
-      internalID: -446990668
+      spriteID: a8f1d4907172f3742aabd389e7cfbb8b
+      internalID: -869304471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set 4.04_11
+      name: Torch Red L_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ceb1b0dc7c7e945a75443e378d7c64
+      internalID: 1118513569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Red L_5
       rect:
         serializedVersion: 2
         x: 80
         y: 0
         width: 16
-        height: 48
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1259887ec7047464da8486f9ac7a2857
-      internalID: -2016229190
+      spriteID: 41e9d32af968f0d48ae9e366b158a3e1
+      internalID: -1579183856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Set 4.04_12
+      name: Torch Red L_6
       rect:
         serializedVersion: 2
-        x: 112
+        x: 96
         y: 0
         width: 16
-        height: 48
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,8 +250,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc117f43e724ae24b892d1d10e5366dd
-      internalID: 1038862365
+      spriteID: 7b5c26bec5c27be4499e085be2c79507
+      internalID: -958840035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Red L_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197323f80c610a24ea45f2f862ce2626
+      internalID: 1329369037
       vertices: []
       indices: 
       edges: []
@@ -393,19 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Set 4.04_0: -412876204
-      Set 4.04_1: -1007453356
-      Set 4.04_10: -446990668
-      Set 4.04_11: -2016229190
-      Set 4.04_12: 1038862365
-      Set 4.04_2: 1748772328
-      Set 4.04_3: -304082884
-      Set 4.04_4: 537878314
-      Set 4.04_5: 1165685437
-      Set 4.04_6: -260453058
-      Set 4.04_7: 1814894748
-      Set 4.04_8: 1427663828
-      Set 4.04_9: -429067382
+      Torch Red L_0: -1886800493
+      Torch Red L_1: -1170768087
+      Torch Red L_2: 126704397
+      Torch Red L_3: -869304471
+      Torch Red L_4: 1118513569
+      Torch Red L_5: -1579183856
+      Torch Red L_6: -958840035
+      Torch Red L_7: 1329369037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
