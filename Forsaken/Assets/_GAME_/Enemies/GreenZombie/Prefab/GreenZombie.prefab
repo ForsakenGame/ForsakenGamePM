@@ -201,9 +201,22 @@ MonoBehaviour:
     m_Bits: 0
   stopDistance: 1
   attackDistance: 0.5
-  backAnimation: {fileID: 7400000, guid: 23ee14cbfd66fb1418aba9d77f920169, type: 2}
-  frontAnimation: {fileID: 7400000, guid: a6e2cacc99c47664e919b05dd68bbceb, type: 2}
+  frontAnimation: {fileID: 7400000, guid: 23ee14cbfd66fb1418aba9d77f920169, type: 2}
+  backAnimation: {fileID: 7400000, guid: a6e2cacc99c47664e919b05dd68bbceb, type: 2}
   leftAnimation: {fileID: 7400000, guid: 03727e90690fd5d4e9cbd1e6d871099c, type: 2}
   rightAnimation: {fileID: 7400000, guid: 6f5539a602cc05f4996d6d64594b5a3b, type: 2}
   idleAnimation: {fileID: 7400000, guid: 531cf16d0b9288b448b9302fc5d67906, type: 2}
-  attackAnimation: {fileID: 7400000, guid: 45bd17118d2559e4599431194b38bd2e, type: 2}
+  runFrontAnimation: {fileID: 7400000, guid: 23ee14cbfd66fb1418aba9d77f920169, type: 2}
+  runBackAnimation: {fileID: 7400000, guid: a6e2cacc99c47664e919b05dd68bbceb, type: 2}
+  runLeftAnimation: {fileID: 7400000, guid: 03727e90690fd5d4e9cbd1e6d871099c, type: 2}
+  runRightAnimation: {fileID: 7400000, guid: 6f5539a602cc05f4996d6d64594b5a3b, type: 2}
+  attackFrontAnimation: {fileID: 7400000, guid: a5f3152b4960f88409b9824dca6c6373, type: 2}
+  attackBackAnimation: {fileID: 7400000, guid: 69c48c552e44c1e46ac61ade7c223d4e, type: 2}
+  attackLeftAnimation: {fileID: 7400000, guid: 45bd17118d2559e4599431194b38bd2e, type: 2}
+  attackRightAnimation: {fileID: 7400000, guid: 42749ffa8e72ec340a299ec75276b4a7, type: 2}
+  deathFrontAnimation: {fileID: 7400000, guid: b4c4870aed764e44dbb8311f6f74be2d, type: 2}
+  deathBackAnimation: {fileID: 7400000, guid: 9616bc5e4d68a224da8756506cacd1ab, type: 2}
+  deathLeftAnimation: {fileID: 7400000, guid: 471d97c2a9cd55d4f98177dd0258cf9e, type: 2}
+  deathRightAnimation: {fileID: 7400000, guid: 8280f78a7433def43ad606b062ccaf32, type: 2}
+  anim: {fileID: 4191261519424845854}
+  rb: {fileID: 2440596322247743879}
