@@ -1,143 +1,231 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[SelectionBase]
 public class GreenZombie_Controller : MonoBehaviour
 {
-    #region Editor Data
-    [Header("Movement Attributes")]
-    [SerializeField] float _moveSpeed = 50f;
+    // Reference to the player
+    public Transform player;
 
-    [Header("Dependencies")]
-    [SerializeField] Rigidbody2D _rb;
-    [SerializeField] Animator _animator;
-    [SerializeField] SpriteRenderer _spriteRenderer;
+    // Detection and movement settings
+    public float detectionRadius = 10f;  // Radius within which the zombie detects the player
+    public float speed = 2f;             // Zombie's movement speed
+    public LayerMask obstacleLayer;      // Layers that may block the zombie's view
+    public float stopDistance = 1f;      // Distance at which zombie stops before reaching the player
+    public float attackRange = 1.0f;     // Range within which the zombie starts attacking
 
-    [Header("Player Reference")]
-    [SerializeField] Transform _player;
-    #endregion
+    // Movement animations
+    public AnimationClip frontAnimation, backAnimation, leftAnimation, rightAnimation, idleAnimation;
+    public AnimationClip runFrontAnimation, runBackAnimation, runLeftAnimation, runRightAnimation;
 
-    #region Internal Data
-    private Vector2 _moveDir = Vector2.zero;
-    private Directions _facingDirection = Directions.DOWN;
-    private Vector3 _guardPoint;  
+    // Attack animations
+    public AnimationClip attackFrontAnimation, attackBackAnimation, attackLeftAnimation, attackRightAnimation;
 
-    // Hashes de animaciones
-    private readonly int _animMoveRight = Animator.StringToHash("Anim_Run_Right");
-    private readonly int _animMoveLeft = Animator.StringToHash("Anim_Run_Left");
-    private readonly int _animMoveUp = Animator.StringToHash("Anim_Run_Back");
-    private readonly int _animMoveDown = Animator.StringToHash("Anim_Run_Front");
-    private readonly int _animIdleRight = Animator.StringToHash("Anim_Idle_Right");
-    private readonly int _animIdleLeft = Animator.StringToHash("Anim_Idle_Left");
-    private readonly int _animIdleFront = Animator.StringToHash("Anim_Idle_Front");
-    private readonly int _animIdleBack = Animator.StringToHash("Anim_Idle_Back");
-    #endregion
+    // Death animations
+    public AnimationClip deathFrontAnimation, deathBackAnimation, deathLeftAnimation, deathRightAnimation;
 
-    #region Tick
+    // Health system
+    public float maxHealth = 2f;  // Maximum health of the zombie
+    private float currentHealth;   // Current health
+
+    // State variables
+    private bool isPlayerInRange = false;
+    private bool isAttacking = false;
+    private bool isDead = false;
+
+    // Components
+    private Animator anim;
+    private Rigidbody2D rb;
+
+    // Initialize variables and components
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;  // Find the player by tag
+        anim = GetComponent<Animator>();  // Get the Animator component
+        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        rb.bodyType = RigidbodyType2D.Kinematic; // Set Rigidbody to kinematic for manual movement
+
+        currentHealth = maxHealth;  // Initialize health to maximum
+    }
+
+    // Update is called once per frame
     void Update()
     {
-        if (_player != null)
+        if (isDead) return;  // Skip update if the zombie is dead
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);  // Distance to the player
+
+        // Check if the player is within detection range
+        if (distanceToPlayer <= detectionRadius)
         {
-            CalculateMoveDirection();
-            UpdateAnimation();
-        }
-    }
+            isPlayerInRange = true;
 
-    private void FixedUpdate()
-    {
-        if (_player != null)
-        {
-            MovementUpdate();
-        }
-    }
-    #endregion
-
-    #region Movement Logic
-    private void CalculateMoveDirection()
-    {
-        Vector2 directionToPlayer = (_player.position - transform.position).normalized;
-        _moveDir = directionToPlayer;
-    }
-
-    private void MovementUpdate()
-    {
-        _rb.velocity = _moveDir * _moveSpeed * Time.fixedDeltaTime;
-    }
-    #endregion
-
-    #region Animation Logic
-    private void UpdateAnimation()
-    {
-        Vector2 directionToPlayer = (_player.position - transform.position).normalized;
-
-        if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.y))
-        {
-            if (directionToPlayer.x > 0)
+            // If the player is within stop distance, stop moving, else move towards player
+            if (distanceToPlayer > stopDistance)
             {
-                _facingDirection = Directions.RIGHT;
-                _animator.CrossFade(_animMoveRight, 0);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, distanceToPlayer, obstacleLayer);
+
+                if (hit.collider == null)  // If no obstacles in the way
+                {
+                    Vector3 direction = (player.position - transform.position).normalized;  // Direction towards player
+
+                    // Move faster if the player is far, otherwise move at normal speed
+                    if (distanceToPlayer > detectionRadius / 2)
+                    {
+                        rb.MovePosition(transform.position + direction * speed * 1.5f * Time.deltaTime);
+                        PlayMovementAnimation(direction, true);  // Play running animation
+                    }
+                    else
+                    {
+                        rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
+                        PlayMovementAnimation(direction, false);  // Play walking animation
+                    }
+                }
             }
-            else if (directionToPlayer.x < 0)
+            // If the player is close enough to attack, initiate attack
+            else if (distanceToPlayer <= attackRange && !isAttacking)
             {
-                _facingDirection = Directions.LEFT;
-                _animator.CrossFade(_animMoveLeft, 0);
+                Attack();
             }
         }
         else
         {
-            if (directionToPlayer.y > 0)
-            {
-                _facingDirection = Directions.UP;
-                _animator.CrossFade(_animMoveUp, 0);
-            }
-            else if (directionToPlayer.y < 0)
-            {
-                _facingDirection = Directions.DOWN;
-                _animator.CrossFade(_animMoveDown, 0);
-            }
+            isPlayerInRange = false;
+            anim.Play(idleAnimation.name);  // Play idle animation if player is not in range
         }
+    }
 
-        if (_moveDir.sqrMagnitude == 0)
+    // Handles zombie movement and animation based on direction and speed
+    void PlayMovementAnimation(Vector3 direction, bool isRunning)
+    {
+        AnimationClip animationToPlay = null;
+
+        if (isRunning)  // If the zombie is running
         {
-            if (_facingDirection == Directions.UP)
-                _animator.CrossFade(_animIdleBack, 0);
-            else if (_facingDirection == Directions.DOWN)
-                _animator.CrossFade(_animIdleFront, 0);
-            else if (_facingDirection == Directions.LEFT)
-                _animator.CrossFade(_animIdleLeft, 0);
-            else if (_facingDirection == Directions.RIGHT)
-                _animator.CrossFade(_animIdleRight, 0);
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            {
+                animationToPlay = direction.x > 0 ? runRightAnimation : runLeftAnimation;
+            }
+            else
+            {
+                animationToPlay = direction.y > 0 ? runFrontAnimation : runBackAnimation;
+            }
+        }
+        else  // If the zombie is walking
+        {
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            {
+                animationToPlay = direction.x > 0 ? rightAnimation : leftAnimation;
+            }
+            else
+            {
+                animationToPlay = direction.y > 0 ? frontAnimation : backAnimation;
+            }
+        }
+
+        if (animationToPlay != null)
+        {
+            anim.Play(animationToPlay.name);  // Play the appropriate movement animation
         }
     }
-    #endregion
 
-    public void SetGuardPoint(Vector3 point)
+    // Handles attacking the player
+    void Attack()
     {
-        _guardPoint = point;
+        if (isAttacking || isDead) return;  // Prevent attacking if already attacking or dead
+
+        isAttacking = true;
+
+        AnimationClip animationToPlay = null;
+        Vector3 direction = (player.position - transform.position).normalized;
+
+        // Choose the correct attack animation based on player direction
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            animationToPlay = direction.x > 0 ? attackRightAnimation : attackLeftAnimation;
+        }
+        else
+        {
+            animationToPlay = direction.y > 0 ? attackFrontAnimation : attackBackAnimation;
+        }
+
+        if (animationToPlay != null)
+        {
+            anim.Play(animationToPlay.name);  // Play the attack animation
+        }
+
+        // Apply damage to the player if in range
+        if (player != null)
+        {
+            Player_HealthController playerHealth = player.GetComponent<Player_HealthController>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(1);  // Deal 1 damage to the player
+            }
+            else
+            {
+                Debug.LogError("Error: Player health component missing.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Error: Player not found.");
+        }
+        StartCoroutine(ResetAttack());  // Wait for the attack animation to finish before allowing another attack
     }
 
-    public Vector3 GetGuardPoint()
+    // Resets the attack state after the attack animation finishes
+    IEnumerator ResetAttack()
     {
-        return _guardPoint;
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        isAttacking = false;  // Reset attacking flag
     }
 
-    public void SetPlayer(Transform player)
+    // Reduces the zombie's health when taking damage
+    public void TakeDamage(float damage)
     {
-        _player = player;
+        currentHealth -= damage;  // Subtract damage from current health
+
+        // If health drops to zero, the zombie dies
+        if (currentHealth <= 0 && !isDead)
+        {
+            Die();
+        }
     }
 
-    public void SetFacingDirection(Directions direction)
+    // Handles the zombie's death and plays the death animation
+    public void Die()
     {
-        _facingDirection = direction;
+        isDead = true;
+
+        AnimationClip animationToPlay = null;
+        Vector3 direction = (player.position - transform.position).normalized;
+
+        // Choose the correct death animation based on player direction
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            animationToPlay = direction.x > 0 ? deathRightAnimation : deathLeftAnimation;
+        }
+        else
+        {
+            animationToPlay = direction.y > 0 ? deathFrontAnimation : deathBackAnimation;
+        }
+
+        if (animationToPlay != null)
+        {
+            anim.Play(animationToPlay.name);  // Play the death animation
+        }
+
+        rb.velocity = Vector2.zero;  // Stop all movement
+        GetComponent<Collider2D>().enabled = false;  // Disable collider to prevent interaction
+        this.enabled = false;  // Disable the zombie controller script
+
+        StartCoroutine(DisappearAfterDeath());  // Start a coroutine to destroy the zombie after the death animation
     }
 
-    #region Enums
-    public enum Directions { UP, DOWN, LEFT, RIGHT }
-    #endregion
+    // Destroys the zombie object after the death animation finishes
+    IEnumerator DisappearAfterDeath()
+    {
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);  // Wait for the death animation to finish
+        Destroy(gameObject);  // Destroy the zombie object
+    }
 }
-
-
-
-
-

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,17 +25,17 @@ public class Player_HealthController : MonoBehaviour
         {
             TakeDamage(1);
         }
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Heal(1);
         }
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             _playerController.Die();
         }
@@ -45,4 +46,9 @@ public class Player_HealthController : MonoBehaviour
         currentHealth += health;
         healthBar.SetHealth(currentHealth);
     }
+
+    //internal void TakeDamage(int v)
+    //{
+    //  throw new NotImplementedException();
+    //}
 }

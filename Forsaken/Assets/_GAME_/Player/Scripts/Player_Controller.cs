@@ -105,14 +105,21 @@ public class Player_Controller : MonoBehaviour
     #region Tick
     private void Update()
     {
-        GatherInput();   
+        GatherInput();
         CalculateFacingDirection();
         UpdateAnimation();
         SaveLastUsedItem();
+        UpdateFirePoint();
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             GameManager.instance.PauseGame();
+        }
+
+        if (Input.GetButton("Fire2") && Time.time >= nextBullet)
+        {
+            nextBullet = Time.time + fireRate;
+            Shoot();
         }
     }
 
@@ -153,10 +160,10 @@ public class Player_Controller : MonoBehaviour
     #region Movement Logic
     private void MovementUpdate()
     {
-        if(!isRunning)
+        if (!isRunning)
         {
             _rb.velocity = _moveDir.normalized * _moveSpeed * Time.fixedDeltaTime;
-        } 
+        }
         else
         {
             _rb.velocity = _moveDir.normalized * _runSpeed * Time.fixedDeltaTime;
@@ -173,7 +180,7 @@ public class Player_Controller : MonoBehaviour
         }
         else if (_moveDir.y != 0)
         {
-            _facingDirection = _moveDir.y > 0 ? Directions.UP :  Directions.DOWN;
+            _facingDirection = _moveDir.y > 0 ? Directions.UP : Directions.DOWN;
 
         }
         // Debug.Log(_facingDirection);
@@ -191,9 +198,9 @@ public class Player_Controller : MonoBehaviour
 
         if (_moveDir.SqrMagnitude() > 0 && !isRunning && !_isDead) // We're walking
         {
-            if(_heldItem == HeldItems.EMPTY) // Walking Normal
+            if (_heldItem == HeldItems.EMPTY) // Walking Normal
             {
-                if(_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
+                if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
                 {
                     _animator.CrossFade(_animMoveRight, 0);
                 }
@@ -239,7 +246,7 @@ public class Player_Controller : MonoBehaviour
         }
         else if (_moveDir.SqrMagnitude() > 0 && isRunning && !isRightClickHeld && !_isDead) // Running 
         {
-            if(_heldItem == HeldItems.EMPTY) // Running normal
+            if (_heldItem == HeldItems.EMPTY) // Running normal
             {
                 if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
                 {
@@ -300,9 +307,9 @@ public class Player_Controller : MonoBehaviour
                 _animator.CrossFade(_animRunningShootingDown, 0);
             }
         }
-        else if(!_isDead)// Idle and static attacks
+        else if (!_isDead)// Idle and static attacks
         {
-            if(!isRightClickHeld && !isLeftClicked && _heldItem == HeldItems.EMPTY) // Normal IDLE
+            if (!isRightClickHeld && !isLeftClicked && _heldItem == HeldItems.EMPTY) // Normal IDLE
             {
                 if (_facingDirection == Directions.LEFT || _facingDirection == Directions.RIGHT)
                 {
@@ -441,9 +448,91 @@ public class Player_Controller : MonoBehaviour
         }
         // Show death screen and pause game
         // Checks if current playing animation has ended
-   
+
     }
     #endregion
+
+    #region Shooting Params
+    public BulletPool bulletPool;
+    public Transform firePoint;
+    public float bulletSpeed = 10f;
+    public float fireRate = 0.2f;
+    private float nextBullet = 0f;
+    #endregion
+
+    private Vector2 GetShootingDirection()
+    {
+        if (isRunning && _moveDir != Vector2.zero)
+        {
+            return _moveDir.normalized; // Usa la direcci?n exacta del movimiento cuando corre
+        }
+
+        // Si est? est?tico, usa la direcci?n en la que el jugador mira
+        switch (_facingDirection)
+        {
+            case Directions.UP:
+                return Vector2.up;
+            case Directions.DOWN:
+                return Vector2.down;
+            case Directions.LEFT:
+                return Vector2.left;
+            case Directions.RIGHT:
+                return Vector2.right;
+            default:
+                return Vector2.zero;
+        }
+    }
+
+    private float GetRotationAngle(Vector2 direction)
+    {
+        return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    }
+
+    private void UpdateFirePoint()
+    {
+        Vector2 offset = GetShootingDirection();
+        float distance = 1f; // Ajusta la distancia
+
+        switch (_facingDirection)
+        {
+            case Directions.UP:
+                offset *= distance;
+                break;
+            case Directions.DOWN:
+                offset *= distance;
+                break;
+            case Directions.LEFT:
+                offset *= distance;
+                break;
+            case Directions.RIGHT:
+                offset *= distance;
+                break;
+        }
+
+        firePoint.localPosition = offset;
+    }
+
+    private void Shoot()
+    {
+        // Solo permite disparar si el jugador est? corriendo o quieto
+        if (_heldItem != HeldItems.GUN || (!isRunning && _moveDir != Vector2.zero)) return;
+
+        GameObject bullet = bulletPool.RequestBullet();
+        if (bullet != null)
+        {
+            Vector2 shootDirection = GetShootingDirection();
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = Quaternion.Euler(0, 0, GetRotationAngle(shootDirection));
+
+            BulletController bulletScript = bullet.GetComponent<BulletController>();
+            if (bulletScript != null)
+            {
+                bulletScript.SetDirection(shootDirection);
+            }
+        }
+    }
+
+
 
     public void ShowDeathMenu()
     {

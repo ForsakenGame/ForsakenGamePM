@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5697449370336986149
+--- !u!1 &3101318002982095231
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1735922367090386656}
-  - component: {fileID: 6090834471654449079}
-  - component: {fileID: 5619798252176429829}
-  - component: {fileID: 2440596322247743879}
-  - component: {fileID: 4191261519424845854}
-  - component: {fileID: -1096489076923552017}
+  - component: {fileID: 1559807428682979411}
+  - component: {fileID: 7140891808362719273}
+  - component: {fileID: 4146721880292516470}
+  - component: {fileID: 6791433447757978365}
+  - component: {fileID: 2372228215092720071}
+  - component: {fileID: 7564136727734209623}
   m_Layer: 0
-  m_Name: GreenZombie
+  m_Name: OrangeZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1735922367090386656
+--- !u!4 &1559807428682979411
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5697449370336986149}
+  m_GameObject: {fileID: 3101318002982095231}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0459, y: -5.1367, z: 0}
-  m_LocalScale: {x: 1.0117905, y: 1.0117905, z: 1.0117905}
+  m_LocalPosition: {x: -55.239, y: 5.2222, z: -0.15844935}
+  m_LocalScale: {x: 1.0981, y: 1.0981, z: 1.0981}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6090834471654449079
+--- !u!212 &7140891808362719273
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5697449370336986149}
+  m_GameObject: {fileID: 3101318002982095231}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 897768025
   m_SortingLayer: 8
-  m_SortingOrder: 5
-  m_Sprite: {fileID: -2065515571, guid: 3691e3b920687214ab72046a368ada69, type: 3}
+  m_SortingOrder: 6
+  m_Sprite: {fileID: -1937675904, guid: 089a01df73fa79545abc63fdf13d9de9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,13 +88,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5619798252176429829
+--- !u!61 &4146721880292516470
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5697449370336986149}
+  m_GameObject: {fileID: 3101318002982095231}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -133,14 +133,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &2440596322247743879
+--- !u!50 &6791433447757978365
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5697449370336986149}
+  m_GameObject: {fileID: 3101318002982095231}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -160,17 +160,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &4191261519424845854
+--- !u!95 &2372228215092720071
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5697449370336986149}
+  m_GameObject: {fileID: 3101318002982095231}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed3cfb1e2d8d8a24299f837287b658cd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 50a3048ec3a210d4fbfeb1a3fdd2bfe5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -181,42 +181,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-1096489076923552017
+--- !u!114 &7564136727734209623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5697449370336986149}
+  m_GameObject: {fileID: 3101318002982095231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654eca1677acc6a4c8fd56a984abc940, type: 3}
+  m_Script: {fileID: 11500000, guid: 147a1d138852cf2418a3e1e50b539f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   detectionRadius: 10
-  speed: 2
+  speed: 3
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
   stopDistance: 1
   attackDistance: 0.5
-  frontAnimation: {fileID: 7400000, guid: 23ee14cbfd66fb1418aba9d77f920169, type: 2}
-  backAnimation: {fileID: 7400000, guid: a6e2cacc99c47664e919b05dd68bbceb, type: 2}
-  leftAnimation: {fileID: 7400000, guid: 03727e90690fd5d4e9cbd1e6d871099c, type: 2}
-  rightAnimation: {fileID: 7400000, guid: 6f5539a602cc05f4996d6d64594b5a3b, type: 2}
-  idleAnimation: {fileID: 7400000, guid: 531cf16d0b9288b448b9302fc5d67906, type: 2}
-  runFrontAnimation: {fileID: 7400000, guid: 23ee14cbfd66fb1418aba9d77f920169, type: 2}
-  runBackAnimation: {fileID: 7400000, guid: a6e2cacc99c47664e919b05dd68bbceb, type: 2}
-  runLeftAnimation: {fileID: 7400000, guid: 03727e90690fd5d4e9cbd1e6d871099c, type: 2}
-  runRightAnimation: {fileID: 7400000, guid: 6f5539a602cc05f4996d6d64594b5a3b, type: 2}
-  attackFrontAnimation: {fileID: 7400000, guid: a5f3152b4960f88409b9824dca6c6373, type: 2}
-  attackBackAnimation: {fileID: 7400000, guid: 69c48c552e44c1e46ac61ade7c223d4e, type: 2}
-  attackLeftAnimation: {fileID: 7400000, guid: 45bd17118d2559e4599431194b38bd2e, type: 2}
-  attackRightAnimation: {fileID: 7400000, guid: 42749ffa8e72ec340a299ec75276b4a7, type: 2}
-  deathFrontAnimation: {fileID: 7400000, guid: b4c4870aed764e44dbb8311f6f74be2d, type: 2}
-  deathBackAnimation: {fileID: 7400000, guid: 9616bc5e4d68a224da8756506cacd1ab, type: 2}
-  deathLeftAnimation: {fileID: 7400000, guid: 471d97c2a9cd55d4f98177dd0258cf9e, type: 2}
-  deathRightAnimation: {fileID: 7400000, guid: 8280f78a7433def43ad606b062ccaf32, type: 2}
-  anim: {fileID: 4191261519424845854}
-  rb: {fileID: 2440596322247743879}
+  attackRange: 1
+  frontAnimation: {fileID: 7400000, guid: b6075280a4ecca546b687e16095e3ac4, type: 2}
+  backAnimation: {fileID: 7400000, guid: 4360011ecc6ed8f47b2c68064ce5624d, type: 2}
+  leftAnimation: {fileID: 7400000, guid: 03114575fe2803e488f08620e154c15c, type: 2}
+  rightAnimation: {fileID: 7400000, guid: 6b235bd278b42914898eb66f7e0bdbb5, type: 2}
+  idleAnimation: {fileID: 7400000, guid: 7dd2b7300d972bc4393b0e234988721f, type: 2}
+  runFrontAnimation: {fileID: 7400000, guid: b6075280a4ecca546b687e16095e3ac4, type: 2}
+  runBackAnimation: {fileID: 7400000, guid: 4360011ecc6ed8f47b2c68064ce5624d, type: 2}
+  runLeftAnimation: {fileID: 7400000, guid: 03114575fe2803e488f08620e154c15c, type: 2}
+  runRightAnimation: {fileID: 7400000, guid: 6b235bd278b42914898eb66f7e0bdbb5, type: 2}
+  attackFrontAnimation: {fileID: 7400000, guid: eca75dc2f3b9711498a566297cefa3d7, type: 2}
+  attackBackAnimation: {fileID: 7400000, guid: 7e34580525f18e643be0f7616ca9d09f, type: 2}
+  attackLeftAnimation: {fileID: 7400000, guid: 64b0b260a14490f43b88afcf225528c2, type: 2}
+  attackRightAnimation: {fileID: 7400000, guid: f81b49e01edd09f4991e58c219e27cb6, type: 2}
+  deathFrontAnimation: {fileID: 7400000, guid: 9a2bee42072caba4c948d0c9b99302dd, type: 2}
+  deathBackAnimation: {fileID: 7400000, guid: 6e53d806b7b6b6d4b9df5e422deab367, type: 2}
+  deathLeftAnimation: {fileID: 7400000, guid: 4333b534f1c81c34cb9e9cb6ead46230, type: 2}
+  deathRightAnimation: {fileID: 7400000, guid: 3a4e2f64804eb4646831b177afe611bb, type: 2}
+  maxHealth: 6
