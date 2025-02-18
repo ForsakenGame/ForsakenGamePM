@@ -462,6 +462,12 @@ public class Player_Controller : MonoBehaviour
 
     private Vector2 GetShootingDirection()
     {
+        if (isRunning && _moveDir != Vector2.zero)
+        {
+            return _moveDir.normalized; // Usa la dirección exacta del movimiento cuando corre
+        }
+
+        // Si está estático, usa la dirección en la que el jugador mira
         switch (_facingDirection)
         {
             case Directions.UP:
@@ -476,6 +482,7 @@ public class Player_Controller : MonoBehaviour
                 return Vector2.zero;
         }
     }
+
     private float GetRotationAngle(Vector2 direction)
     {
         return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -483,19 +490,36 @@ public class Player_Controller : MonoBehaviour
 
     private void UpdateFirePoint()
     {
-        Vector2 offset = GetShootingDirection() * 0.5f; // Ajusta la distancia del firePoint al jugador
+        Vector2 offset = GetShootingDirection();
+        float distance = 1f; // Ajusta la distancia
+
+        switch (_facingDirection)
+        {
+            case Directions.UP:
+                offset *= distance;
+                break;
+            case Directions.DOWN:
+                offset *= distance;
+                break;
+            case Directions.LEFT:
+                offset *= distance;
+                break;
+            case Directions.RIGHT:
+                offset *= distance;
+                break;
+        }
+
         firePoint.localPosition = offset;
     }
+
     private void Shoot()
     {
-        if (_heldItem != HeldItems.GUN) return;
+        // Solo permite disparar si el jugador está corriendo o quieto
+        if (_heldItem != HeldItems.GUN || (!isRunning && _moveDir != Vector2.zero)) return;
 
         GameObject bullet = bulletPool.RequestBullet();
         if (bullet != null)
         {
-            /*bullet.transform.position = firePoint.position;
-            bullet.transform.rotation = Quaternion.identity;*/
-
             Vector2 shootDirection = GetShootingDirection();
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = Quaternion.Euler(0, 0, GetRotationAngle(shootDirection));
@@ -503,15 +527,11 @@ public class Player_Controller : MonoBehaviour
             BulletController bulletScript = bullet.GetComponent<BulletController>();
             if (bulletScript != null)
             {
-                Vector2 dir = GetShootingDirection();
                 bulletScript.SetDirection(shootDirection);
-            }
-            else
-            {
-                Debug.LogError("El objeto bala no tiene el script BulletController.cs");
             }
         }
     }
+
 
 
     public void ShowDeathMenu()
