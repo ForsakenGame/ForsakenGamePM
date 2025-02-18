@@ -2,40 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bulletç : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
     public float bulletSpeed, timeAlive;
     public Rigidbody2D bulletRb;
     private Vector2 direction;
-    private float currentTime = 0;
+
     void Start()
     {
-        bulletRb = GetComponent <Rigidbody2D>();
-    }
-    private void Update()
-    {
-        currentTime += Time.deltaTime;
+        bulletRb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    void Update()
+    {
+
+    }
+
+    void FixedUpdate()
     {
         bulletRb.velocity = direction * bulletSpeed;
+    }
+
+    public void StartDestroyTimer()
+    {
+        StartCoroutine(DestroyAfterTime(3f)); 
+    }
+
+    private IEnumerator DestroyAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        DestroyBullet(); 
     }
 
     public void SetDirection(Vector2 givenDirection)
     {
         direction = givenDirection;
+        StartDestroyTimer();
     }
 
     public void DestroyBullet()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        // TRAERSE EL COMPONENTE DE LOS ENEMIGOS
-        // GreenZombie gz = col.GetComponent<GreenZombie>();
 
+        DestroyBullet();
     }
 }

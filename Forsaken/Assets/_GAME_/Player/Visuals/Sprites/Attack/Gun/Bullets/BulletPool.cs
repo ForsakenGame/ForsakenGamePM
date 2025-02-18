@@ -5,32 +5,16 @@ public class BulletPool : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public List<GameObject> bulletPool;
-
     public int poolSize = 10;
 
-    private static BulletPool instance;
-    public static BulletPool Instance { get { return instance; } }
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    void Start()
+    private void Start()
     {
         AddBulletToPool(poolSize);
     }
 
     private void AddBulletToPool(int quantity)
     {
-        for (int i = 0; i < poolSize; i++)
+        for (int i = 0; i < quantity; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.SetActive(false);
@@ -41,14 +25,19 @@ public class BulletPool : MonoBehaviour
 
     public GameObject RequestBullet()
     {
-        for (int i = 0; i < bulletPool.Count; i++)
+        foreach (GameObject bullet in bulletPool)
         {
-            if (!bulletPool[i].activeSelf)
+            if (!bullet.activeSelf)
             {
-                bulletPool[i].SetActive(true);
-                return bulletPool[i];
+                bullet.SetActive(true);
+                return bullet;
             }
         }
-        return null;
+
+        // Si no hay balas disponibles, crea una nueva
+        GameObject newBullet = Instantiate(bulletPrefab);
+        newBullet.SetActive(true);
+        bulletPool.Add(newBullet);
+        return newBullet;
     }
 }
