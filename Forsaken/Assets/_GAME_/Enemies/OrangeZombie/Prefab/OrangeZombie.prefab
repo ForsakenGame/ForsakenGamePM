@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   detectionRadius: 10
-  speed: 5
+  speed: 3
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +31,7 @@ public class Player_HealthController : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
@@ -45,4 +46,9 @@ public class Player_HealthController : MonoBehaviour
         currentHealth += health;
         healthBar.SetHealth(currentHealth);
     }
+
+    //internal void TakeDamage(int v)
+    //{
+    //  throw new NotImplementedException();
+    //}
 }
