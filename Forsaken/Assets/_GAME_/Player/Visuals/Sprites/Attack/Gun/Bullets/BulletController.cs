@@ -50,6 +50,7 @@ public class BulletController : MonoBehaviour
     {
         GreenZombie_Controller greenZombie = col.GetComponent<GreenZombie_Controller>();
         OrangeZombie_Controller orangeZombie = col.GetComponent<OrangeZombie_Controller>();
+        
         if (greenZombie != null)
         {
             greenZombie.TakeDamage(damage); // Aplica daño al zombie

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: GuardState (S)
+  m_EditorClassIdentifier: Assembly-CSharp::GuardState
+  nextState: {fileID: 11400000, guid: f8cbc05c24f5f744e9fb290c7e100717, type: 2}
+  actionValue: 1
+  action: {fileID: 11400000, guid: e308ff1a03d48954badef7c21dccf3e2, type: 2}
+  guardPoint: {x: 59.02585, y: -39.64013, z: 4.196666}
+  clip: {fileID: 7400000, guid: c2bb37e7351bf064ea700194918fbbf5, type: 2}
